@@ -21,10 +21,10 @@ const About = () => {
           </div>
           <div>
             <h3 style={{ fontSize: '2rem', marginBottom: '20px', color: 'var(--primary)' }}>Crafting Desert Dreams Since 2014</h3>
-            <p style={{ color: '#cbd5e1', lineHeight: '1.8', marginBottom: '20px' }}>
+            <p style={{ color: 'var(--text-muted)', lineHeight: '1.8', marginBottom: '20px' }}>
               Shivhari Tours and Desert Safari was established with a singular vision: to connect adventure seekers with the deep cultural heart of the Thar Desert. Based out of our central booking office on Airforce Road in Jaisalmer, we help thousands of guests experience the true desert lifestyle every year.
             </p>
-            <p style={{ color: '#cbd5e1', lineHeight: '1.8' }}>
+            <p style={{ color: 'var(--text-muted)', lineHeight: '1.8' }}>
               We take pride in our 100% safety record across all dune bashing jeep rides and camel safaris. Our luxury camps are curated to offer high comfort while showcasing spectacular Rajasthani folk dances, music, and local gourmet cuisine under open skies.
             </p>
           </div>
@@ -46,7 +46,7 @@ const About = () => {
                 {item.icon}
               </div>
               <h4 style={{ fontSize: '1.2rem', marginBottom: '12px' }}>{item.title}</h4>
-              <p style={{ color: '#94a3b8', fontSize: '0.95rem' }}>{item.desc}</p>
+              <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem' }}>{item.desc}</p>
             </div>
           ))}
         </div>

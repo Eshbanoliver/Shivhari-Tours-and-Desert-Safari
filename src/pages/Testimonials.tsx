@@ -75,7 +75,7 @@ const Testimonials = () => {
                   ))}
                 </div>
                 
-                <p style={{ color: '#cbd5e1', fontStyle: 'italic', lineHeight: '1.7', marginBottom: '25px', fontSize: '0.98rem' }}>
+                <p style={{ color: 'var(--text-muted)', fontStyle: 'italic', lineHeight: '1.7', marginBottom: '25px', fontSize: '0.98rem' }}>
                   "{r.text}"
                 </p>
               </div>
@@ -83,7 +83,7 @@ const Testimonials = () => {
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '15px' }}>
                 <div>
                   <h4 style={{ fontSize: '1.05rem', color: '#fff' }}>{r.name}</h4>
-                  <span style={{ color: '#94a3b8', fontSize: '0.85rem' }}>{r.location}</span>
+                  <span style={{ color: 'var(--text-muted)', fontSize: '0.85rem' }}>{r.location}</span>
                 </div>
                 <span style={{ color: 'var(--primary)', fontSize: '0.85rem', fontWeight: '500' }}>{r.date}</span>
               </div>

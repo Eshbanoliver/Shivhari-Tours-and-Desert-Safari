@@ -1,10 +1,11 @@
 import { Link, NavLink } from 'react-router-dom';
-import { Menu, X, Phone } from 'lucide-react';
+import { Menu, X, Phone, Sun, Moon } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'dark');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -14,7 +15,16 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+  }, [theme]);
+
   const toggleMenu = () => setIsOpen(!isOpen);
+
+  const toggleTheme = () => {
+    setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
+  };
 
   const navLinks = [
     { name: 'Home', path: '/' },
@@ -37,8 +47,8 @@ const Header = () => {
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
-        background: scrolled ? 'rgba(11, 15, 25, 0.85)' : 'rgba(11, 15, 25, 0.4)',
-        borderColor: scrolled ? 'rgba(240, 123, 63, 0.25)' : 'rgba(255, 255, 255, 0.08)',
+        background: scrolled ? 'var(--header-bg-scrolled)' : 'var(--header-bg-top)',
+        borderColor: scrolled ? 'rgba(240, 123, 63, 0.25)' : 'var(--glass-border)',
         transition: 'var(--transition-smooth)',
         borderRadius: '50px',
       }}
@@ -46,12 +56,12 @@ const Header = () => {
       <div className="logo" style={{ display: 'flex', alignItems: 'center' }}>
         <Link to="/" style={{ fontSize: '1.5rem', fontWeight: '800', display: 'flex', gap: '8px', alignItems: 'center' }}>
           <span style={{ color: 'var(--primary)' }}>Shivhari</span>
-          <span style={{ color: '#fff', fontWeight: '300', fontSize: '1.1rem', letterSpacing: '2px', borderLeft: '1px solid rgba(255,255,255,0.2)', paddingLeft: '8px' }}>TOURS</span>
+          <span style={{ color: 'var(--text-color)', fontWeight: '300', fontSize: '1.1rem', letterSpacing: '2px', borderLeft: '1px solid var(--glass-border)', paddingLeft: '8px' }}>TOURS</span>
         </Link>
       </div>
 
       {/* Desktop Nav */}
-      <nav style={{ display: 'flex', gap: '35px', alignItems: 'center' }} className="desktop-nav">
+      <nav style={{ display: 'flex', gap: '30px', alignItems: 'center' }} className="desktop-nav">
         {navLinks.map((link) => (
           <NavLink
             key={link.name}
@@ -59,7 +69,7 @@ const Header = () => {
             style={({ isActive }) => ({
               fontWeight: 500,
               fontSize: '0.95rem',
-              color: isActive ? 'var(--primary)' : '#cbd5e1',
+              color: isActive ? 'var(--primary)' : 'var(--text-muted)',
               transition: 'color 0.3s',
               position: 'relative',
               padding: '6px 0',
@@ -68,20 +78,55 @@ const Header = () => {
             {link.name}
           </NavLink>
         ))}
+
+        {/* Theme Toggle Button */}
+        <button 
+          onClick={toggleTheme}
+          style={{
+            background: 'none',
+            border: 'none',
+            cursor: 'pointer',
+            padding: '8px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            color: 'var(--text-color)',
+            transition: 'var(--transition-smooth)'
+          }}
+          aria-label="Toggle Theme"
+        >
+          {theme === 'dark' ? <Sun size={20} color="var(--secondary)" /> : <Moon size={20} color="var(--primary)" />}
+        </button>
+
         <a href="tel:+919079037934" className="btn btn-primary" style={{ padding: '8px 20px', borderRadius: '30px', fontSize: '0.85rem' }}>
           <Phone size={14} /> Call Now
         </a>
       </nav>
 
-      {/* Mobile Menu Button */}
-      <div className="mobile-menu-btn" onClick={toggleMenu} style={{ display: 'none', cursor: 'pointer', color: '#fff' }}>
-        {isOpen ? <X size={24} /> : <Menu size={24} />}
+      {/* Mobile Actions Container (Menu + Theme Toggle) */}
+      <div style={{ display: 'none', alignItems: 'center', gap: '15px' }} className="mobile-actions">
+        <button 
+          onClick={toggleTheme}
+          style={{
+            background: 'none',
+            border: 'none',
+            cursor: 'pointer',
+            padding: '4px',
+            color: 'var(--text-color)',
+          }}
+          aria-label="Toggle Theme"
+        >
+          {theme === 'dark' ? <Sun size={20} color="var(--secondary)" /> : <Moon size={20} color="var(--primary)" />}
+        </button>
+        <div onClick={toggleMenu} style={{ cursor: 'pointer', color: 'var(--text-color)' }}>
+          {isOpen ? <X size={24} /> : <Menu size={24} />}
+        </div>
       </div>
 
       <style>{`
         @media (max-width: 992px) {
           .desktop-nav { display: none !important; }
-          .mobile-menu-btn { display: block !important; }
+          .mobile-actions { display: flex !important; }
         }
       `}</style>
 
@@ -97,8 +142,8 @@ const Header = () => {
           padding: '24px',
           gap: '20px',
           borderRadius: '24px',
-          background: 'rgba(11, 15, 25, 0.95)',
-          border: '1px solid rgba(240, 123, 63, 0.25)',
+          background: 'var(--card-bg)',
+          borderColor: 'rgba(240, 123, 63, 0.25)',
         }}>
           {navLinks.map((link) => (
             <NavLink
@@ -108,9 +153,9 @@ const Header = () => {
               style={({ isActive }) => ({
                 fontWeight: 600,
                 fontSize: '1.1rem',
-                color: isActive ? 'var(--primary)' : '#f1f5f9',
+                color: isActive ? 'var(--primary)' : 'var(--text-color)',
                 paddingBottom: '8px',
-                borderBottom: '1px solid rgba(255,255,255,0.05)',
+                borderBottom: '1px solid var(--glass-border)',
               })}
             >
               {link.name}

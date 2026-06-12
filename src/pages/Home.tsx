@@ -145,7 +145,7 @@ const Home = () => {
             <h1 style={{ fontSize: '3.8rem', lineHeight: '1.2', margin: '20px 0', fontWeight: '800' }}>
               Discover the Magic of <span style={{ color: 'var(--primary)' }}>Jaisalmer</span> Desert
             </h1>
-            <p style={{ fontSize: '1.2rem', color: '#cbd5e1', marginBottom: '40px', maxWidth: '600px', margin: '0 auto 40px auto' }}>
+            <p style={{ fontSize: '1.2rem', color: 'var(--text-muted)', marginBottom: '40px', maxWidth: '600px', margin: '0 auto 40px auto' }}>
               Experience thrilling dune bashing, luxurious desert camp stays, traditional Rajasthani culture, and custom taxi tours with the desert experts.
             </p>
             <div style={{ display: 'flex', gap: '20px', justifyContent: 'center', flexWrap: 'wrap' }}>
@@ -162,10 +162,10 @@ const Home = () => {
           <div className="animate-fade-in">
             <span style={{ color: 'var(--primary)', fontWeight: '600', textTransform: 'uppercase', letterSpacing: '2px', fontSize: '0.9rem' }}>Who We Are</span>
             <h2 style={{ fontSize: '2.5rem', marginTop: '10px', marginBottom: '20px', textAlign: 'left' }}>Shivhari Tours & Desert Safari</h2>
-            <p style={{ color: '#94a3b8', fontSize: '1.1rem', marginBottom: '25px', lineHeight: '1.8' }}>
+            <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem', marginBottom: '25px', lineHeight: '1.8' }}>
               Nestled in the Golden City, we are Jaisalmer's top-rated destination management agency. We craft authentic, safe, and exhilarating Rajasthani adventures, specializing in high-speed Jeep Safaris, beautiful desert camps, and customized tour taxis.
             </p>
-            <p style={{ color: '#94a3b8', fontSize: '1.1rem', marginBottom: '35px', lineHeight: '1.8' }}>
+            <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem', marginBottom: '35px', lineHeight: '1.8' }}>
               Visit us at our central office on Airforce Road to book a desert sunset experience you will cherish forever.
             </p>
             <Link to="/about" className="btn btn-primary">
@@ -198,7 +198,7 @@ const Home = () => {
               <div style={{ fontSize: '3rem', fontWeight: '800', color: 'var(--primary)', marginBottom: '10px' }}>
                 <CountUp end={metric.value} suffix={metric.suffix} />
               </div>
-              <p style={{ color: '#94a3b8', fontSize: '1rem', fontWeight: '500', textTransform: 'uppercase', letterSpacing: '1px' }}>{metric.label}</p>
+              <p style={{ color: 'var(--text-muted)', fontSize: '1rem', fontWeight: '500', textTransform: 'uppercase', letterSpacing: '1px' }}>{metric.label}</p>
             </div>
           ))}
         </div>
@@ -207,7 +207,7 @@ const Home = () => {
       {/* Services Section */}
       <section className="section container">
         <h2 className="section-title">Our Signature Services</h2>
-        <p style={{ textAlign: 'center', color: '#cbd5e1', maxWidth: '600px', margin: '-30px auto 50px auto', fontSize: '1.1rem' }}>
+        <p style={{ textAlign: 'center', color: 'var(--text-muted)', maxWidth: '600px', margin: '-30px auto 50px auto', fontSize: '1.1rem' }}>
           From thrilling dune rides to relaxing stays under the desert stars, discover what makes us special.
         </p>
 
@@ -239,7 +239,7 @@ const Home = () => {
               <div style={{ padding: '30px', flexGrow: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
                 <div>
                   <h3 style={{ fontSize: '1.5rem', marginBottom: '12px' }}>{service.title}</h3>
-                  <p style={{ color: '#94a3b8', marginBottom: '24px', fontSize: '0.98rem' }}>{service.desc}</p>
+                  <p style={{ color: 'var(--text-muted)', marginBottom: '24px', fontSize: '0.98rem' }}>{service.desc}</p>
                 </div>
                 <Link to={service.link} className="btn btn-glass" style={{ width: '100%', justifyContent: 'center' }}>
                   Explore Details <ArrowRight size={16} />
@@ -257,7 +257,7 @@ const Home = () => {
           <div className="glass-panel" style={{ padding: '40px' }}>
             <Compass size={40} color="var(--primary)" style={{ marginBottom: '20px' }} />
             <h3 style={{ fontSize: '1.8rem', marginBottom: '15px' }}>Mission & Vision</h3>
-            <p style={{ color: '#cbd5e1', lineHeight: '1.8' }}>
+            <p style={{ color: 'var(--text-muted)', lineHeight: '1.8' }}>
               Our mission is to establish the benchmark for adventure travel in Rajasthan. We aim to bring travelers closer to the rich heritage and vibrant colors of Jaisalmer, ensuring safe, culturally respectful, and breathtaking excursions.
             </p>
           </div>
@@ -265,7 +265,7 @@ const Home = () => {
           <div className="glass-panel" style={{ padding: '40px' }}>
             <Shield size={40} color="var(--secondary)" style={{ marginBottom: '20px' }} />
             <h3 style={{ fontSize: '1.8rem', marginBottom: '15px' }}>Core Values</h3>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '15px', color: '#cbd5e1' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '15px', color: 'var(--text-muted)' }}>
               <div style={{ display: 'flex', gap: '10px' }}>
                 <CheckCircle size={18} color="var(--primary)" style={{ flexShrink: 0, marginTop: '4px' }} />
                 <span><strong>Safety First:</strong> We utilize advanced backup services and trained drivers.</span>
@@ -297,7 +297,7 @@ const Home = () => {
                 <MapPin size={24} color="var(--primary)" />
               </div>
               <h4 style={{ fontSize: '1.3rem', marginBottom: '12px' }}>{item.title}</h4>
-              <p style={{ color: '#94a3b8' }}>{item.desc}</p>
+              <p style={{ color: 'var(--text-muted)' }}>{item.desc}</p>
             </div>
           ))}
         </div>
@@ -336,7 +336,7 @@ const Home = () => {
           <div className="glass-panel testimonial-card animate-fade-in" key={activeTestimonial}>
             <p className="testimonial-quote">"{testimonials[activeTestimonial].quote}"</p>
             <h4 className="testimonial-author">{testimonials[activeTestimonial].author}</h4>
-            <span style={{ color: '#94a3b8', fontSize: '0.9rem' }}>{testimonials[activeTestimonial].role}</span>
+            <span style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>{testimonials[activeTestimonial].role}</span>
           </div>
 
           {/* Slider controls */}

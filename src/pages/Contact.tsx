@@ -52,7 +52,7 @@ const Contact = () => {
                 <MapPin size={24} color="var(--primary)" style={{ flexShrink: 0 }} />
                 <div>
                   <h4 style={{ color: '#fff', fontSize: '1.1rem', marginBottom: '6px' }}>Address</h4>
-                  <p style={{ color: '#cbd5e1', lineHeight: '1.6' }}>
+                  <p style={{ color: 'var(--text-muted)', lineHeight: '1.6' }}>
                     Shop no 05, Airforce Road,<br />
                     Jaisalmer, Rajasthan - 345001
                   </p>
@@ -63,7 +63,7 @@ const Contact = () => {
                 <Phone size={24} color="var(--primary)" style={{ flexShrink: 0 }} />
                 <div>
                   <h4 style={{ color: '#fff', fontSize: '1.1rem', marginBottom: '6px' }}>Phone Numbers</h4>
-                  <p style={{ color: '#cbd5e1', lineHeight: '1.6' }}>
+                  <p style={{ color: 'var(--text-muted)', lineHeight: '1.6' }}>
                     <a href="tel:+919079037934" style={{ transition: 'color 0.3s' }} className="contact-link">+91 9079037934</a><br />
                     <a href="tel:+919166306846" style={{ transition: 'color 0.3s' }} className="contact-link">+91 9166306846</a>
                   </p>
@@ -74,7 +74,7 @@ const Contact = () => {
             {/* Quick Links / WhatsApp Help */}
             <div className="glass-panel" style={{ padding: '30px', textAlign: 'center', background: 'rgba(37, 211, 102, 0.05)', borderColor: 'rgba(37, 211, 102, 0.2)' }}>
               <h4 style={{ marginBottom: '12px' }}>Need Instant Booking?</h4>
-              <p style={{ color: '#cbd5e1', fontSize: '0.95rem', marginBottom: '20px' }}>Chat directly with our booking executive on WhatsApp for quick discounts.</p>
+              <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', marginBottom: '20px' }}>Chat directly with our booking executive on WhatsApp for quick discounts.</p>
               <a href="https://wa.me/919079037934" target="_blank" rel="noopener noreferrer" className="btn" style={{ background: '#25D366', color: 'white', width: '100%', justifyContent: 'center' }}>
                 <MessageCircle size={20} /> Chat on WhatsApp
               </a>
@@ -93,7 +93,7 @@ const Contact = () => {
             ) : (
               <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
                 <div>
-                  <label style={{ display: 'block', marginBottom: '8px', fontSize: '0.9rem', color: '#94a3b8' }}>Full Name</label>
+                  <label style={{ display: 'block', marginBottom: '8px', fontSize: '0.9rem', color: 'var(--text-muted)' }}>Full Name</label>
                   <input 
                     type="text" 
                     name="name"
@@ -107,7 +107,7 @@ const Contact = () => {
                 
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '15px' }}>
                   <div>
-                    <label style={{ display: 'block', marginBottom: '8px', fontSize: '0.9rem', color: '#94a3b8' }}>Phone Number</label>
+                    <label style={{ display: 'block', marginBottom: '8px', fontSize: '0.9rem', color: 'var(--text-muted)' }}>Phone Number</label>
                     <input 
                       type="tel" 
                       name="phone"
@@ -119,7 +119,7 @@ const Contact = () => {
                     />
                   </div>
                   <div>
-                    <label style={{ display: 'block', marginBottom: '8px', fontSize: '0.9rem', color: '#94a3b8' }}>Email Address</label>
+                    <label style={{ display: 'block', marginBottom: '8px', fontSize: '0.9rem', color: 'var(--text-muted)' }}>Email Address</label>
                     <input 
                       type="email" 
                       name="email"
@@ -132,7 +132,7 @@ const Contact = () => {
                 </div>
 
                 <div>
-                  <label style={{ display: 'block', marginBottom: '8px', fontSize: '0.9rem', color: '#94a3b8' }}>Interested Service</label>
+                  <label style={{ display: 'block', marginBottom: '8px', fontSize: '0.9rem', color: 'var(--text-muted)' }}>Interested Service</label>
                   <select 
                     name="service"
                     value={formData.service}
@@ -147,7 +147,7 @@ const Contact = () => {
                 </div>
 
                 <div>
-                  <label style={{ display: 'block', marginBottom: '8px', fontSize: '0.9rem', color: '#94a3b8' }}>Message / Special Request</label>
+                  <label style={{ display: 'block', marginBottom: '8px', fontSize: '0.9rem', color: 'var(--text-muted)' }}>Message / Special Request</label>
                   <textarea 
                     name="message"
                     rows={4}

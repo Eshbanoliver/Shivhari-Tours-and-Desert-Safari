@@ -68,11 +68,11 @@ const Services = () => {
               {/* Info Column */}
               <div style={{ flex: '1.2 1 400px', padding: '40px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
                 <h3 style={{ fontSize: '1.8rem', marginBottom: '15px', color: '#fff' }}>{service.title}</h3>
-                <p style={{ color: '#cbd5e1', marginBottom: '24px', lineHeight: '1.7' }}>{service.desc}</p>
+                <p style={{ color: 'var(--text-muted)', marginBottom: '24px', lineHeight: '1.7' }}>{service.desc}</p>
                 
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginBottom: '30px' }}>
                   {service.features.map((f, i) => (
-                    <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#94a3b8' }}>
+                    <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '10px', color: 'var(--text-muted)' }}>
                       <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: 'var(--primary)' }}></span>
                       <span>{f}</span>
                     </div>
