@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useState, useEffect, useRef } from 'react';
 import { Shield, MapPin, Compass, ArrowRight, ChevronLeft, ChevronRight, CheckCircle, ChevronDown } from 'lucide-react';
+import { FaCampground, FaTaxi, FaCarSide, FaQuoteLeft } from 'react-icons/fa';
 
 // Import assets
 import heroImg from '../assets/hero.png';
@@ -217,19 +218,22 @@ const Home = () => {
               title: "Jeep Safari",
               img: jeepImg,
               desc: "Experience high-octane dune bashing on Sam dunes with our robust 4x4 offroad jeeps.",
-              link: "/services"
+              link: "/services",
+              icon: <FaCarSide size={22} color="var(--primary)" />
             },
             {
               title: "Desert Camps",
               img: campImg,
               desc: "Indulge in luxurious Swiss cottage tents complete with modern amenities and local musical programs.",
-              link: "/services"
+              link: "/services",
+              icon: <FaCampground size={22} color="var(--primary)" />
             },
             {
               title: "Taxi Services & Tours",
               img: taxiImg,
               desc: "Clean, comfortable vehicles with local drivers for smooth city sightseeing and station transfers.",
-              link: "/services"
+              link: "/services",
+              icon: <FaTaxi size={22} color="var(--primary)" />
             }
           ].map((service, idx) => (
             <div key={idx} className="glass-panel hover-lift glow-card" style={{ overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
@@ -238,7 +242,9 @@ const Home = () => {
               </div>
               <div style={{ padding: '30px', flexGrow: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
                 <div>
-                  <h3 style={{ fontSize: '1.5rem', marginBottom: '12px' }}>{service.title}</h3>
+                  <h3 style={{ fontSize: '1.5rem', marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '10px' }}>
+                    {service.icon} <span>{service.title}</span>
+                  </h3>
                   <p style={{ color: 'var(--text-muted)', marginBottom: '24px', fontSize: '0.98rem' }}>{service.desc}</p>
                 </div>
                 <Link to={service.link} className="btn btn-glass" style={{ width: '100%', justifyContent: 'center' }}>
@@ -333,7 +339,8 @@ const Home = () => {
         <h2 className="section-title">What Our Guests Say</h2>
         
         <div style={{ maxWidth: '800px', margin: '0 auto', position: 'relative' }}>
-          <div className="glass-panel testimonial-card animate-fade-in" key={activeTestimonial}>
+          <div className="glass-panel testimonial-card animate-fade-in" key={activeTestimonial} style={{ padding: '50px 40px 40px 40px' }}>
+            <FaQuoteLeft size={32} color="var(--primary)" style={{ opacity: 0.2, marginBottom: '20px', display: 'block', margin: '0 auto 20px auto' }} />
             <p className="testimonial-quote">"{testimonials[activeTestimonial].quote}"</p>
             <h4 className="testimonial-author">{testimonials[activeTestimonial].author}</h4>
             <span style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>{testimonials[activeTestimonial].role}</span>

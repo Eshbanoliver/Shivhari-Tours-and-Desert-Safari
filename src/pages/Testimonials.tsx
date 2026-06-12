@@ -1,4 +1,4 @@
-import { Star } from 'lucide-react';
+import { FaStar } from 'react-icons/fa';
 
 const Testimonials = () => {
   const reviews = [
@@ -66,11 +66,10 @@ const Testimonials = () => {
                 {/* Rating stars */}
                 <div style={{ display: 'flex', gap: '4px', marginBottom: '15px' }}>
                   {[...Array(5)].map((_, i) => (
-                    <Star 
+                    <FaStar 
                       key={i} 
                       size={18} 
                       color={i < r.rating ? "var(--secondary)" : "rgba(255,255,255,0.1)"} 
-                      fill={i < r.rating ? "var(--secondary)" : "none"} 
                     />
                   ))}
                 </div>

@@ -1,4 +1,5 @@
-import { MessageCircle, PhoneCall, ArrowUp } from 'lucide-react';
+import { FaWhatsapp, FaPhoneAlt } from 'react-icons/fa';
+import { ArrowUp } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
 const FloatingButtons = () => {
@@ -49,7 +50,7 @@ const FloatingButtons = () => {
             border: 'none',
           }}
         >
-          <MessageCircle size={28} color="white" />
+          <FaWhatsapp size={30} color="white" />
         </a>
 
         {/* Call Button */}
@@ -70,7 +71,7 @@ const FloatingButtons = () => {
             border: 'none',
           }}
         >
-          <PhoneCall size={26} color="white" />
+          <FaPhoneAlt size={22} color="white" />
         </a>
       </div>
 
