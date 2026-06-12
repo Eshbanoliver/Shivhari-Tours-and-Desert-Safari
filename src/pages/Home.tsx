@@ -8,6 +8,9 @@ import heroImg from '../assets/hero.png';
 import jeepImg from '../assets/jeep_safari.png';
 import campImg from '../assets/desert_camp.png';
 import taxiImg from '../assets/taxi.png';
+import slider1 from '../assets/slider1.jpg';
+import slider2 from '../assets/slider2.jpg';
+import slider3 from '../assets/slider3.jpg';
 
 // Count-up helper component for key metrics
 interface CountUpProps {
@@ -61,6 +64,17 @@ const CountUp = ({ end, duration = 1500, suffix = "" }: CountUpProps) => {
 };
 
 const Home = () => {
+  // Hero slider state
+  const [currentHeroSlide, setCurrentHeroSlide] = useState(0);
+  const heroSlides = [slider1, slider2, slider3];
+
+  useEffect(() => {
+    const slideTimer = setInterval(() => {
+      setCurrentHeroSlide((prev) => (prev + 1) % heroSlides.length);
+    }, 5000);
+    return () => clearInterval(slideTimer);
+  }, [heroSlides.length]);
+
   // FAQ accordion state
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
@@ -126,20 +140,38 @@ const Home = () => {
       
       {/* Hero Section */}
       <section 
-        className="section" 
+        className="section hero-slider-container" 
         style={{ 
           minHeight: '95vh', 
           display: 'flex', 
           alignItems: 'center', 
           justifyContent: 'center', 
           position: 'relative',
-          backgroundImage: `linear-gradient(rgba(11, 15, 25, 0.6), rgba(11, 15, 25, 0.9)), url(${heroImg})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundAttachment: 'fixed',
-          padding: '120px 5% 80px 5%'
+          padding: '120px 5% 80px 5%',
+          overflow: 'hidden'
         }}
       >
+        {/* Animated Background Slider */}
+        {heroSlides.map((slide, index) => (
+          <div 
+            key={index}
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              width: '100%',
+              height: '100%',
+              backgroundImage: `linear-gradient(rgba(11, 15, 25, 0.4), rgba(11, 15, 25, 0.9)), url(${slide})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              backgroundAttachment: 'fixed',
+              opacity: currentHeroSlide === index ? 1 : 0,
+              transition: 'opacity 1.5s ease-in-out',
+              zIndex: 0
+            }}
+          />
+        ))}
+
         <div className="container animate-fade-in" style={{ textAlign: 'center', zIndex: 1 }}>
           <div className="glass-panel hero-box" style={{ maxWidth: '850px', margin: '0 auto', background: 'rgba(11, 15, 25, 0.55)', border: '1px solid rgba(255, 255, 255, 0.1)' }}>
             <span style={{ color: 'var(--primary)', fontWeight: '700', letterSpacing: '4px', fontSize: '0.9rem', textTransform: 'uppercase' }}>Unforgettable Adventures Await</span>

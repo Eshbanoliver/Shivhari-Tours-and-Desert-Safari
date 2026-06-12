@@ -1,4 +1,5 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 import Header from './components/Header.tsx';
 import Footer from './components/Footer.tsx';
 import FloatingButtons from './components/FloatingButtons.tsx';
@@ -11,9 +12,24 @@ import Contact from './pages/Contact.tsx';
 
 import './App.css';
 
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth' // or 'instant' if preferred
+    });
+  }, [pathname]);
+
+  return null;
+}
+
 function App() {
   return (
     <>
+      <ScrollToTop />
       <Header />
       <main style={{ minHeight: '100vh', paddingTop: '80px' }}>
         <Routes>
