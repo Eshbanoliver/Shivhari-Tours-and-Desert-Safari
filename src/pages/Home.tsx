@@ -157,33 +157,136 @@ const Home = () => {
         </div>
       </section>
 
-      {/* About Us Summary */}
+      {/* About Us Summary (Who We Are) */}
       <section className="section container">
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '50px', alignItems: 'center' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '60px', alignItems: 'center' }}>
+          
+          {/* Left Column: Text & Features */}
           <div className="animate-fade-in">
-            <span style={{ color: 'var(--primary)', fontWeight: '600', textTransform: 'uppercase', letterSpacing: '2px', fontSize: '0.9rem' }}>Who We Are</span>
-            <h2 style={{ fontSize: 'var(--fs-h2)', marginTop: '10px', marginBottom: '20px', textAlign: 'left' }}>Shivhari Tours & Desert Safari</h2>
-            <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem', marginBottom: '25px', lineHeight: '1.8' }}>
-              Nestled in the Golden City, we are Jaisalmer's top-rated destination management agency. We craft authentic, safe, and exhilarating Rajasthani adventures, specializing in high-speed Jeep Safaris, beautiful desert camps, and customized tour taxis.
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 16px', borderRadius: '30px', background: 'rgba(240, 123, 63, 0.1)', border: '1px solid rgba(240, 123, 63, 0.2)', marginBottom: '15px' }}>
+              <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: 'var(--primary)' }} className="ping-dot"></span>
+              <span style={{ color: 'var(--primary)', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '1px', fontSize: '0.8rem' }}>Who We Are</span>
+            </div>
+            
+            <h2 style={{ fontSize: 'var(--fs-h2)', marginTop: '0', marginBottom: '20px', textAlign: 'left', lineHeight: '1.2' }}>
+              Crafting Legendary <span style={{ color: 'var(--primary)' }}>Thar Desert</span> Experiences
+            </h2>
+            
+            <p style={{ color: 'var(--text-muted)', fontSize: '1.05rem', marginBottom: '25px', lineHeight: '1.8' }}>
+              Nestled in the Golden City of Jaisalmer, Shivhari Tours and Desert Safari is a premier destination management agency. We are a family of local guides passionate about sharing the vibrant hospitality, folklore, and adventure of Sam Sand Dunes.
             </p>
-            <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem', marginBottom: '35px', lineHeight: '1.8' }}>
-              Visit us at our central office on Airforce Road to book a desert sunset experience you will cherish forever.
-            </p>
-            <Link to="/about" className="btn btn-primary">
+
+            {/* Icon list of features */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '15px', marginBottom: '35px' }}>
+              {[
+                { title: "Genuine Local Guides", desc: "Native desert residents showing you hidden spots.", icon: <Shield size={18} color="var(--primary)" /> },
+                { title: "Safe Dune Bashing", desc: "Experienced drivers and certified 4x4 vehicles.", icon: <Compass size={18} color="var(--secondary)" /> }
+              ].map((feat, idx) => (
+                <div key={idx} style={{ display: 'flex', gap: '15px', alignItems: 'flex-start' }}>
+                  <div style={{ display: 'flex', padding: '8px', borderRadius: '50%', background: 'var(--card-bg)', border: '1px solid var(--glass-border)', flexShrink: 0 }}>
+                    {feat.icon}
+                  </div>
+                  <div>
+                    <h4 style={{ fontSize: '1.05rem', color: 'var(--text-color)', fontWeight: '600', marginBottom: '4px' }}>{feat.title}</h4>
+                    <p style={{ color: 'var(--text-muted)', fontSize: '0.92rem', margin: 0 }}>{feat.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <Link to="/about" className="btn btn-primary" style={{ padding: '12px 30px' }}>
               Discover Our Story <ArrowRight size={18} />
             </Link>
           </div>
           
-          <div style={{ position: 'relative' }}>
-            <div className="glass-panel" style={{ overflow: 'hidden', borderRadius: '24px', height: '400px' }}>
-              <img src={campImg} alt="Desert camp Jaisalmer" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+          {/* Right Column: Double Overlapping Image Stack */}
+          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '420px', position: 'relative' }} className="image-stack-container">
+            {/* Background offset image (Jeep Safari) */}
+            <div 
+              className="glass-panel stack-bg-img" 
+              style={{ 
+                overflow: 'hidden', 
+                borderRadius: '24px', 
+                width: '65%', 
+                height: '280px',
+                position: 'absolute',
+                top: '10px',
+                left: '10px',
+                zIndex: 1,
+                boxShadow: '0 15px 35px rgba(0,0,0,0.4)',
+                border: '1px solid rgba(255,255,255,0.08)'
+              }}
+            >
+              <img src={jeepImg} alt="Dune Bashing Jaisalmer" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
             </div>
-            <div className="glass-panel desktop-only-box" style={{ position: 'absolute', bottom: '-20px', left: '-20px', padding: '20px', background: 'rgba(240, 123, 63, 0.9)', color: 'white', borderRadius: '16px', border: 'none' }}>
-              <h4 style={{ color: 'white', fontSize: '1.2rem', marginBottom: '5px' }}>Trusted Local Guides</h4>
-              <p style={{ fontSize: '0.9rem', opacity: '0.9' }}>100% Rajasthani hospitality</p>
+
+            {/* Foreground image (Desert Camp) */}
+            <div 
+              className="glass-panel stack-fg-img" 
+              style={{ 
+                overflow: 'hidden', 
+                borderRadius: '24px', 
+                width: '65%', 
+                height: '280px',
+                position: 'absolute',
+                bottom: '10px',
+                right: '10px',
+                zIndex: 2,
+                boxShadow: '0 20px 45px rgba(0,0,0,0.5)',
+                border: '1px solid rgba(240, 123, 63, 0.25)'
+              }}
+            >
+              <img src={campImg} alt="Desert Camping Jaisalmer" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+            </div>
+
+            {/* Floating Trust Badge */}
+            <div 
+              className="glass-panel" 
+              style={{ 
+                position: 'absolute', 
+                bottom: '0', 
+                left: '0', 
+                padding: '16px 24px', 
+                background: 'rgba(240, 123, 63, 0.95)', 
+                color: 'white', 
+                borderRadius: '16px', 
+                border: 'none',
+                zIndex: 3,
+                boxShadow: '0 10px 25px rgba(240, 123, 63, 0.4)'
+              }}
+            >
+              <h4 style={{ color: 'white', fontSize: '1.1rem', fontWeight: 'bold', marginBottom: '4px' }}>10+ Years</h4>
+              <p style={{ fontSize: '0.85rem', opacity: '0.9', margin: 0 }}>Desert Hospitality</p>
             </div>
           </div>
+
         </div>
+
+        <style>{`
+          .image-stack-container:hover .stack-bg-img {
+            transform: translate(-10px, -10px) scale(1.02);
+          }
+          .image-stack-container:hover .stack-fg-img {
+            transform: translate(10px, 10px) scale(1.02);
+            border-color: rgba(240, 123, 63, 0.4);
+          }
+          .ping-dot {
+            animation: pulse-ring 1.5s cubic-bezier(0.215, 0.610, 0.355, 1) infinite;
+          }
+          @keyframes pulse-ring {
+            0% { transform: scale(0.95); opacity: 0.5; }
+            50% { transform: scale(1.2); opacity: 1; }
+            100% { transform: scale(0.95); opacity: 0.5; }
+          }
+          @media(max-width: 576px) {
+            .image-stack-container {
+              height: 320px !important;
+            }
+            .stack-bg-img, .stack-fg-img {
+              height: 200px !important;
+            }
+          }
+        `}</style>
       </section>
 
       {/* Key Metrics Section */}
