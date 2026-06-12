@@ -1,73 +1,69 @@
-# React + TypeScript + Vite
+# Shivhari Tours and Desert Safari
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to the official repository for **Shivhari Tours and Desert Safari**, a premium destination management agency located in the heart of Jaisalmer, Rajasthan.
 
-Currently, two official plugins are available:
+![Shivhari Tours](public/logo.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Overview
 
-## React Compiler
+Shivhari Tours and Desert Safari provides unforgettable adventures in the Thar Desert. Our offerings include:
+- **Luxury Desert Camp Stays**: Experience high-comfort tents, cultural folk dances, and local gourmet cuisine under the open sky.
+- **Jeep Safaris**: Thrilling dune bashing experiences with certified drivers and 4x4 vehicles.
+- **Camel Safaris**: Authentic desert rides with native guides.
+- **Taxi & Sightseeing**: Reliable transportation and custom city tours.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech Stack
 
-## Expanding the ESLint configuration
+This project is a modern, responsive web application built with:
+- **React.js** (via Vite)
+- **TypeScript**
+- **Vanilla CSS** with a custom design system
+- **React Router** for seamless navigation
+- **Lucide React** for crisp, scalable iconography
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Features
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- 🌓 **Light/Dark Mode**: Fully responsive theme toggling for accessibility.
+- 📱 **Mobile-First Design**: Carefully crafted media queries for flawless mobile and tablet viewing.
+- ✨ **Glassmorphism UI**: Beautiful frosted-glass aesthetic and subtle hover micro-animations.
+- 🚀 **SEO Optimized**: Includes dynamically generated `sitemap.xml`, `robots.txt`, and metadata.
+- 🏎️ **High Performance**: Optimized image loading and rapid Vite tooling.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Getting Started
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+To run this project locally:
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/Eshbanoliver/Shivhari-Tours-and-Desert-Safari.git
+   ```
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+2. **Navigate to the project directory:**
+   ```bash
+   cd jaisemertrip
+   ```
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+3. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+
+4. **Run the development server:**
+   ```bash
+   npm run dev
+   ```
+
+5. **Build for production:**
+   ```bash
+   npm run build
+   ```
+
+## Contact Information
+
+**Booking Office:** Shop no 05, Airforce Road, Jaisalmer, Rajasthan - 345001  
+**Email:** yashvyas7773@gmail.com  
+**Phone:** +91 9079037934 / +91 9166306846  
+**Domain:** [shivharitoursanddesertsafari.com](https://shivharitoursanddesertsafari.com)
+
+---
+*Crafted with passion for the Thar Desert.*

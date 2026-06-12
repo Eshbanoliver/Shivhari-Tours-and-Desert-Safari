@@ -4,7 +4,6 @@ import { Shield, MapPin, Compass, ArrowRight, ChevronLeft, ChevronRight, CheckCi
 import { FaCampground, FaTaxi, FaCarSide, FaQuoteLeft } from 'react-icons/fa';
 
 // Import assets
-import heroImg from '../assets/hero.png';
 import jeepImg from '../assets/jeep_safari.png';
 import campImg from '../assets/desert_camp.png';
 import taxiImg from '../assets/taxi.png';
