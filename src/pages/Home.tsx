@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useState, useEffect, useRef } from 'react';
-import { Shield, MapPin, Compass, ArrowRight, ChevronLeft, ChevronRight, CheckCircle, ChevronDown } from 'lucide-react';
+import { Shield, MapPin, Compass, ArrowRight, ChevronLeft, ChevronRight, CheckCircle, ChevronDown, Users, Award, ThumbsUp, Tent } from 'lucide-react';
 import { FaCampground, FaTaxi, FaCarSide, FaQuoteLeft } from 'react-icons/fa';
 
 // Import assets
@@ -158,105 +158,115 @@ const Home = () => {
       </section>
 
       {/* About Us Summary (Who We Are) */}
-      <section className="section container">
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '60px', alignItems: 'center' }}>
+      <section className="section container" style={{ position: 'relative' }}>
+        {/* Ambient glow for the Who We Are section */}
+        <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '80%', height: '80%', borderRadius: '50%', background: 'radial-gradient(circle, rgba(240, 123, 63, 0.15) 0%, transparent 60%)', filter: 'blur(80px)', pointerEvents: 'none', zIndex: 0 }} />
+        
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '60px', alignItems: 'center', position: 'relative', zIndex: 1 }}>
           
           {/* Left Column: Text & Features */}
-          <div className="animate-fade-in">
-            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 16px', borderRadius: '30px', background: 'rgba(240, 123, 63, 0.1)', border: '1px solid rgba(240, 123, 63, 0.2)', marginBottom: '15px' }}>
-              <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: 'var(--primary)' }} className="ping-dot"></span>
-              <span style={{ color: 'var(--primary)', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '1px', fontSize: '0.8rem' }}>Who We Are</span>
+          <div className="animate-fade-in glass-panel" style={{ padding: '45px', borderRadius: '24px', border: '1px solid rgba(240, 123, 63, 0.25)', boxShadow: '0 25px 50px rgba(0,0,0,0.3)', background: 'var(--card-bg)', backdropFilter: 'blur(20px)' }}>
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', padding: '8px 20px', borderRadius: '30px', background: 'linear-gradient(135deg, rgba(240, 123, 63, 0.15), rgba(255, 212, 96, 0.1))', border: '1px solid rgba(240, 123, 63, 0.4)', marginBottom: '25px', boxShadow: '0 5px 15px rgba(240, 123, 63, 0.1)' }}>
+              <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: 'var(--primary)', boxShadow: '0 0 12px var(--primary)' }} className="ping-dot"></span>
+              <span style={{ color: 'var(--primary)', fontWeight: '800', textTransform: 'uppercase', letterSpacing: '2px', fontSize: '0.85rem' }}>Who We Are</span>
             </div>
             
-            <h2 style={{ fontSize: 'var(--fs-h2)', marginTop: '0', marginBottom: '20px', textAlign: 'left', lineHeight: '1.2' }}>
-              Crafting Legendary <span style={{ color: 'var(--primary)' }}>Thar Desert</span> Experiences
+            <h2 style={{ fontSize: 'var(--fs-h2)', marginTop: '0', marginBottom: '25px', textAlign: 'left', lineHeight: '1.2' }}>
+              Crafting Legendary <br/><span style={{ background: 'linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', display: 'inline-block', filter: 'drop-shadow(0 4px 8px rgba(240, 123, 63, 0.3))' }}>Thar Desert</span> Experiences
             </h2>
             
-            <p style={{ color: 'var(--text-muted)', fontSize: '1.05rem', marginBottom: '25px', lineHeight: '1.8' }}>
+            <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem', marginBottom: '35px', lineHeight: '1.8' }}>
               Nestled in the Golden City of Jaisalmer, Shivhari Tours and Desert Safari is a premier destination management agency. We are a family of local guides passionate about sharing the vibrant hospitality, folklore, and adventure of Sam Sand Dunes.
             </p>
 
             {/* Icon list of features */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '15px', marginBottom: '35px' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', marginBottom: '40px' }}>
               {[
-                { title: "Genuine Local Guides", desc: "Native desert residents showing you hidden spots.", icon: <Shield size={18} color="var(--primary)" /> },
-                { title: "Safe Dune Bashing", desc: "Experienced drivers and certified 4x4 vehicles.", icon: <Compass size={18} color="var(--secondary)" /> }
+                { title: "Genuine Local Guides", desc: "Native desert residents showing you hidden spots.", icon: <Shield size={24} color="var(--primary)" /> },
+                { title: "Safe Dune Bashing", desc: "Experienced drivers and certified 4x4 vehicles.", icon: <Compass size={24} color="var(--secondary)" /> }
               ].map((feat, idx) => (
-                <div key={idx} style={{ display: 'flex', gap: '15px', alignItems: 'flex-start' }}>
-                  <div style={{ display: 'flex', padding: '8px', borderRadius: '50%', background: 'var(--card-bg)', border: '1px solid var(--glass-border)', flexShrink: 0 }}>
+                <div key={idx} className="feature-item" style={{ display: 'flex', gap: '20px', alignItems: 'flex-start', padding: '16px', borderRadius: '16px', background: 'rgba(255,255,255,0.02)', border: '1px solid transparent', transition: 'var(--transition-smooth)' }}>
+                  <div className="feature-icon" style={{ display: 'flex', padding: '14px', borderRadius: '50%', background: 'linear-gradient(135deg, rgba(240, 123, 63, 0.1), rgba(255, 212, 96, 0.05))', border: '1px solid rgba(240, 123, 63, 0.2)', flexShrink: 0, transition: 'var(--transition-smooth)', boxShadow: '0 8px 20px rgba(0,0,0,0.1)' }}>
                     {feat.icon}
                   </div>
                   <div>
-                    <h4 style={{ fontSize: '1.05rem', color: 'var(--text-color)', fontWeight: '600', marginBottom: '4px' }}>{feat.title}</h4>
-                    <p style={{ color: 'var(--text-muted)', fontSize: '0.92rem', margin: 0 }}>{feat.desc}</p>
+                    <h4 style={{ fontSize: '1.15rem', color: 'var(--text-color)', fontWeight: '700', marginBottom: '6px' }}>{feat.title}</h4>
+                    <p style={{ color: 'var(--text-muted)', fontSize: '0.98rem', margin: 0, lineHeight: '1.5' }}>{feat.desc}</p>
                   </div>
                 </div>
               ))}
             </div>
 
-            <Link to="/about" className="btn btn-primary" style={{ padding: '12px 30px' }}>
-              Discover Our Story <ArrowRight size={18} />
+            <Link to="/about" className="btn btn-primary" style={{ padding: '16px 36px', width: '100%', fontSize: '1.1rem', borderRadius: '16px', boxShadow: '0 10px 30px rgba(240, 123, 63, 0.4)' }}>
+              Discover Our Story <ArrowRight size={20} />
             </Link>
           </div>
           
           {/* Right Column: Double Overlapping Image Stack */}
-          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '420px', position: 'relative' }} className="image-stack-container">
+          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '480px', position: 'relative' }} className="image-stack-container">
             {/* Background offset image (Jeep Safari) */}
             <div 
-              className="glass-panel stack-bg-img" 
+              className="stack-bg-img" 
               style={{ 
                 overflow: 'hidden', 
-                borderRadius: '24px', 
-                width: '65%', 
-                height: '280px',
+                borderRadius: '30px', 
+                width: '70%', 
+                height: '320px',
                 position: 'absolute',
-                top: '10px',
-                left: '10px',
+                top: '0',
+                left: '0',
                 zIndex: 1,
-                boxShadow: '0 15px 35px rgba(0,0,0,0.4)',
-                border: '1px solid rgba(255,255,255,0.08)'
+                boxShadow: '0 20px 40px rgba(0,0,0,0.5)',
+                border: '2px solid rgba(255,255,255,0.1)',
+                transition: 'var(--transition-smooth)'
               }}
             >
+              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg, rgba(240, 123, 63, 0.2), transparent)', zIndex: 1, pointerEvents: 'none' }} />
               <img src={jeepImg} alt="Dune Bashing Jaisalmer" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
             </div>
 
             {/* Foreground image (Desert Camp) */}
             <div 
-              className="glass-panel stack-fg-img" 
+              className="stack-fg-img" 
               style={{ 
                 overflow: 'hidden', 
-                borderRadius: '24px', 
-                width: '65%', 
-                height: '280px',
+                borderRadius: '30px', 
+                width: '70%', 
+                height: '320px',
                 position: 'absolute',
-                bottom: '10px',
-                right: '10px',
+                bottom: '0',
+                right: '0',
                 zIndex: 2,
-                boxShadow: '0 20px 45px rgba(0,0,0,0.5)',
-                border: '1px solid rgba(240, 123, 63, 0.25)'
+                boxShadow: '0 25px 50px rgba(0,0,0,0.6)',
+                border: '2px solid rgba(240, 123, 63, 0.4)',
+                transition: 'var(--transition-smooth)'
               }}
             >
+              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(11, 15, 25, 0.4), transparent)', zIndex: 1, pointerEvents: 'none' }} />
               <img src={campImg} alt="Desert Camping Jaisalmer" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
             </div>
 
             {/* Floating Trust Badge */}
             <div 
-              className="glass-panel" 
+              className="trust-badge" 
               style={{ 
                 position: 'absolute', 
-                bottom: '0', 
-                left: '0', 
-                padding: '16px 24px', 
-                background: 'rgba(240, 123, 63, 0.95)', 
+                bottom: '10%', 
+                left: '-5%', 
+                padding: '20px 30px', 
+                background: 'linear-gradient(135deg, rgba(240, 123, 63, 0.95), rgba(216, 98, 39, 0.95))', 
                 color: 'white', 
-                borderRadius: '16px', 
-                border: 'none',
+                borderRadius: '20px', 
+                border: '1px solid rgba(255, 255, 255, 0.2)',
                 zIndex: 3,
-                boxShadow: '0 10px 25px rgba(240, 123, 63, 0.4)'
+                boxShadow: '0 15px 35px rgba(240, 123, 63, 0.5)',
+                backdropFilter: 'blur(10px)',
+                transition: 'var(--transition-smooth)',
+                animation: 'float 4s ease-in-out infinite'
               }}
             >
-              <h4 style={{ color: 'white', fontSize: '1.1rem', fontWeight: 'bold', marginBottom: '4px' }}>10+ Years</h4>
-              <p style={{ fontSize: '0.85rem', opacity: '0.9', margin: 0 }}>Desert Hospitality</p>
+              <h4 style={{ color: 'white', fontSize: '1.3rem', fontWeight: '800', marginBottom: '6px', textShadow: '0 2px 4px rgba(0,0,0,0.2)' }}>10+ Years</h4>
+              <p style={{ fontSize: '0.9rem', opacity: '0.9', margin: 0, fontWeight: '500' }}>Desert Hospitality</p>
             </div>
           </div>
 
@@ -264,48 +274,214 @@ const Home = () => {
 
         <style>{`
           .image-stack-container:hover .stack-bg-img {
-            transform: translate(-10px, -10px) scale(1.02);
+            transform: translate(-15px, -15px) scale(1.03) rotate(-2deg);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.6);
           }
           .image-stack-container:hover .stack-fg-img {
-            transform: translate(10px, 10px) scale(1.02);
-            border-color: rgba(240, 123, 63, 0.4);
+            transform: translate(15px, 15px) scale(1.05) rotate(2deg);
+            border-color: rgba(240, 123, 63, 0.7);
+            box-shadow: 0 30px 60px rgba(240, 123, 63, 0.3);
+          }
+          .image-stack-container:hover .trust-badge {
+            transform: scale(1.1) translateY(-10px) !important;
+            box-shadow: 0 20px 40px rgba(240, 123, 63, 0.6);
+          }
+          .feature-item:hover {
+            background: rgba(240, 123, 63, 0.05) !important;
+            border-color: rgba(240, 123, 63, 0.2) !important;
+            transform: translateX(10px);
+          }
+          .feature-item:hover .feature-icon {
+            background: rgba(240, 123, 63, 0.2) !important;
+            transform: scale(1.1) rotate(5deg);
+            border-color: rgba(240, 123, 63, 0.5) !important;
           }
           .ping-dot {
             animation: pulse-ring 1.5s cubic-bezier(0.215, 0.610, 0.355, 1) infinite;
           }
           @keyframes pulse-ring {
-            0% { transform: scale(0.95); opacity: 0.5; }
-            50% { transform: scale(1.2); opacity: 1; }
-            100% { transform: scale(0.95); opacity: 0.5; }
+            0% { transform: scale(0.95); opacity: 0.5; box-shadow: 0 0 0 0 rgba(240, 123, 63, 0.7); }
+            70% { transform: scale(1); opacity: 1; box-shadow: 0 0 0 10px rgba(240, 123, 63, 0); }
+            100% { transform: scale(0.95); opacity: 0.5; box-shadow: 0 0 0 0 rgba(240, 123, 63, 0); }
+          }
+          @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
           }
           @media(max-width: 576px) {
             .image-stack-container {
-              height: 320px !important;
+              height: 360px !important;
             }
             .stack-bg-img, .stack-fg-img {
-              height: 200px !important;
+              height: 240px !important;
+            }
+            .trust-badge {
+              bottom: -10% !important;
+              left: 10% !important;
             }
           }
         `}</style>
       </section>
 
       {/* Key Metrics Section */}
-      <section className="section" style={{ background: 'rgba(17, 24, 39, 0.4)', borderTop: '1px solid rgba(255,255,255,0.05)', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
-        <div className="container" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '30px' }}>
-          {[
-            { value: 5000, label: 'Happy Explorers', suffix: '+' },
-            { value: 12, label: 'Years of Experience', suffix: '+' },
-            { value: 99, label: 'Positive Reviews', suffix: '%' },
-            { value: 15, label: 'Luxury Tents', suffix: '' }
-          ].map((metric, i) => (
-            <div key={i} className="glass-panel glow-card" style={{ padding: '40px 20px', textAlign: 'center' }}>
-              <div style={{ fontSize: '3rem', fontWeight: '800', color: 'var(--primary)', marginBottom: '10px' }}>
-                <CountUp end={metric.value} suffix={metric.suffix} />
+      <section className="section" style={{ 
+        position: 'relative',
+        overflow: 'hidden',
+        padding: '120px 5%',
+        background: 'linear-gradient(180deg, var(--bg-color) 0%, rgba(240, 123, 63, 0.05) 50%, var(--bg-color) 100%)'
+      }}>
+        {/* Animated background blobs */}
+        <div className="metric-blob metric-blob-1"></div>
+        <div className="metric-blob metric-blob-2"></div>
+
+        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
+          <div style={{ textAlign: 'center', marginBottom: '70px' }}>
+            <span style={{ color: 'var(--primary)', fontWeight: '800', textTransform: 'uppercase', letterSpacing: '2px', fontSize: '0.9rem', display: 'inline-flex', alignItems: 'center', gap: '10px' }}>
+              <span style={{ width: '30px', height: '2px', background: 'var(--primary)' }}></span>
+              Our Impact
+              <span style={{ width: '30px', height: '2px', background: 'var(--primary)' }}></span>
+            </span>
+            <h2 style={{ fontSize: 'var(--fs-h2)', marginTop: '15px', background: 'linear-gradient(135deg, var(--text-color) 0%, var(--primary) 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', textShadow: '0 10px 30px rgba(240, 123, 63, 0.15)' }}>
+              The Desert Legacy in Numbers
+            </h2>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '40px' }}>
+            {[
+              { value: 5000, label: 'Happy Explorers', suffix: '+', icon: <Users size={32} color="#fff" />, color: 'var(--primary)', glow: 'rgba(240, 123, 63, 0.6)' },
+              { value: 12, label: 'Years Experience', suffix: '+', icon: <Award size={32} color="#fff" />, color: 'var(--secondary)', glow: 'rgba(255, 212, 96, 0.6)' },
+              { value: 99, label: 'Positive Reviews', suffix: '%', icon: <ThumbsUp size={32} color="#fff" />, color: 'var(--primary)', glow: 'rgba(240, 123, 63, 0.6)' },
+              { value: 15, label: 'Luxury Tents', suffix: '', icon: <Tent size={32} color="#fff" />, color: 'var(--secondary)', glow: 'rgba(255, 212, 96, 0.6)' }
+            ].map((metric, i) => (
+              <div 
+                key={i} 
+                className="metric-card animate-fade-in"
+                style={{ 
+                  '--glow-color': metric.glow,
+                  animationDelay: `${i * 0.1}s` 
+                } as React.CSSProperties}
+              >
+                <div className="metric-icon-wrapper" style={{ background: `linear-gradient(135deg, ${metric.color}, rgba(0,0,0,0.8))` }}>
+                  {metric.icon}
+                </div>
+                <div className="metric-value-container">
+                  <div className="metric-value">
+                    <CountUp end={metric.value} suffix={metric.suffix} />
+                  </div>
+                </div>
+                <p className="metric-label">{metric.label}</p>
+                <div className="metric-border-glow"></div>
               </div>
-              <p style={{ color: 'var(--text-muted)', fontSize: '1rem', fontWeight: '500', textTransform: 'uppercase', letterSpacing: '1px' }}>{metric.label}</p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
+
+        <style>{`
+          .metric-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.5;
+            animation: move-blob 12s infinite alternate cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 0;
+            pointer-events: none;
+          }
+          .metric-blob-1 {
+            top: -10%; left: -10%; width: 50vw; height: 50vw;
+            max-width: 600px; max-height: 600px;
+            background: rgba(240, 123, 63, 0.15);
+          }
+          .metric-blob-2 {
+            bottom: -10%; right: -10%; width: 60vw; height: 60vw;
+            max-width: 700px; max-height: 700px;
+            background: rgba(255, 212, 96, 0.1);
+            animation-delay: -6s;
+          }
+          @keyframes move-blob {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(80px, 80px) scale(1.1); }
+          }
+          .metric-card {
+            position: relative;
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            padding: 60px 30px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+          }
+          .metric-card:hover {
+            transform: translateY(-20px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.3), 0 0 50px var(--glow-color);
+            border-color: rgba(255,255,255,0.3);
+            background: rgba(17, 24, 39, 0.7);
+          }
+          .metric-icon-wrapper {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 30px auto;
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+            transform: rotate(-10deg);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+          }
+          .metric-card:hover .metric-icon-wrapper {
+            transform: rotate(0deg) scale(1.15) translateY(-5px);
+            box-shadow: 0 20px 40px var(--glow-color);
+          }
+          .metric-value-container {
+            margin-bottom: 12px;
+          }
+          .metric-value {
+            font-size: 3.8rem;
+            font-weight: 800;
+            line-height: 1;
+            background: linear-gradient(135deg, var(--text-color) 0%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-variant-numeric: tabular-nums;
+            transition: all 0.4s ease;
+          }
+          .metric-card:hover .metric-value {
+            transform: scale(1.05);
+            text-shadow: 0 10px 20px rgba(0,0,0,0.2);
+          }
+          .metric-label {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 0;
+            transition: color 0.4s ease;
+          }
+          .metric-card:hover .metric-label {
+            color: #fff;
+          }
+          .metric-border-glow {
+            position: absolute;
+            inset: 0;
+            border-radius: 30px;
+            padding: 2px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            pointer-events: none;
+          }
+          .metric-card:hover .metric-border-glow {
+            opacity: 1;
+          }
+        `}</style>
       </section>
 
       {/* Services Section */}
@@ -350,46 +526,125 @@ const Home = () => {
                   </h3>
                   <p style={{ color: 'var(--text-muted)', marginBottom: '24px', fontSize: '0.98rem' }}>{service.desc}</p>
                 </div>
-                <Link to={service.link} className="btn btn-glass" style={{ width: '100%', justifyContent: 'center' }}>
-                  Explore Details <ArrowRight size={16} />
-                </Link>
+                <div style={{ display: 'flex', gap: '10px' }}>
+                  <Link to={service.link} className="btn btn-glass" style={{ flex: 1, justifyContent: 'center', padding: '12px 10px', fontSize: '0.9rem' }}>
+                    Explore Details
+                  </Link>
+                  <Link to="/contact" className="btn btn-primary" style={{ flex: 1, justifyContent: 'center', padding: '12px 10px', fontSize: '0.9rem' }}>
+                    Contact Us
+                  </Link>
+                </div>
               </div>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Mission, Vision & Core Values Section */}
-      <section className="section" style={{ background: 'linear-gradient(180deg, rgba(11, 15, 25, 0) 0%, rgba(17, 24, 39, 0.6) 100%)' }}>
-        <div className="container" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '40px' }}>
-          
-          <div className="glass-panel" style={{ padding: '40px' }}>
-            <Compass size={40} color="var(--primary)" style={{ marginBottom: '20px' }} />
-            <h3 style={{ fontSize: 'var(--fs-h3)', marginBottom: '15px' }}>Mission & Vision</h3>
-            <p style={{ color: 'var(--text-muted)', lineHeight: '1.8' }}>
-              Our mission is to establish the benchmark for adventure travel in Rajasthan. We aim to bring travelers closer to the rich heritage and vibrant colors of Jaisalmer, ensuring safe, culturally respectful, and breathtaking excursions.
-            </p>
-          </div>
+      {/* Mission & Vision Section */}
+      <section className="section" style={{ position: 'relative', overflow: 'hidden', padding: '100px 5%' }}>
+        {/* Background elements */}
+        <div style={{ position: 'absolute', top: '10%', right: '-5%', width: '400px', height: '400px', background: 'radial-gradient(circle, rgba(240, 123, 63, 0.15) 0%, transparent 70%)', filter: 'blur(60px)', zIndex: 0, pointerEvents: 'none' }} />
+        
+        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '60px', alignItems: 'center' }}>
+            
+            {/* Visual Side */}
+            <div className="mission-visual animate-fade-in" style={{ position: 'relative', height: '450px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+              <div className="mission-center-orb glass-panel" style={{ width: '220px', height: '220px', borderRadius: '50%', display: 'flex', justifyContent: 'center', alignItems: 'center', background: 'rgba(240, 123, 63, 0.08)', border: '2px solid rgba(240, 123, 63, 0.3)', boxShadow: '0 0 40px rgba(240, 123, 63, 0.2)', zIndex: 2, position: 'relative', transition: 'all 0.5s ease' }}>
+                <Compass size={90} color="var(--primary)" style={{ filter: 'drop-shadow(0 10px 15px rgba(240, 123, 63, 0.5))' }} />
+              </div>
+              {/* Orbiting rings */}
+              <div className="orbit-ring" style={{ position: 'absolute', width: '320px', height: '320px', borderRadius: '50%', border: '1px dashed rgba(240, 123, 63, 0.4)', zIndex: 1 }}></div>
+              <div className="orbit-ring orbit-ring-reverse" style={{ position: 'absolute', width: '420px', height: '420px', borderRadius: '50%', border: '1px dotted rgba(255, 212, 96, 0.4)', zIndex: 1 }}></div>
+            </div>
 
-          <div className="glass-panel" style={{ padding: '40px' }}>
-            <Shield size={40} color="var(--secondary)" style={{ marginBottom: '20px' }} />
-            <h3 style={{ fontSize: 'var(--fs-h3)', marginBottom: '15px' }}>Core Values</h3>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '15px', color: 'var(--text-muted)' }}>
-              <div style={{ display: 'flex', gap: '10px' }}>
-                <CheckCircle size={18} color="var(--primary)" style={{ flexShrink: 0, marginTop: '4px' }} />
-                <span><strong>Safety First:</strong> We utilize advanced backup services and trained drivers.</span>
-              </div>
-              <div style={{ display: 'flex', gap: '10px' }}>
-                <CheckCircle size={18} color="var(--primary)" style={{ flexShrink: 0, marginTop: '4px' }} />
-                <span><strong>True Hospitality:</strong> Experience authentic Rajasthani hospitality.</span>
-              </div>
-              <div style={{ display: 'flex', gap: '10px' }}>
-                <CheckCircle size={18} color="var(--primary)" style={{ flexShrink: 0, marginTop: '4px' }} />
-                <span><strong>No Hidden Costs:</strong> Honest pricing with transparent inclusions.</span>
+            {/* Text Side */}
+            <div className="mission-text animate-fade-in">
+              <span style={{ display: 'inline-block', padding: '6px 16px', borderRadius: '30px', background: 'rgba(240, 123, 63, 0.1)', border: '1px solid rgba(240, 123, 63, 0.2)', color: 'var(--primary)', fontWeight: '800', textTransform: 'uppercase', letterSpacing: '2px', fontSize: '0.85rem', marginBottom: '20px' }}>
+                Our Purpose
+              </span>
+              <h2 style={{ fontSize: 'var(--fs-h2)', marginTop: '0', marginBottom: '25px', lineHeight: '1.2' }}>
+                Setting the Benchmark for <span style={{ background: 'linear-gradient(135deg, var(--primary), var(--secondary))', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', display: 'inline-block', filter: 'drop-shadow(0 2px 4px rgba(240, 123, 63, 0.3))' }}>Adventure Travel</span>
+              </h2>
+              <p style={{ color: 'var(--text-muted)', fontSize: '1.15rem', lineHeight: '1.8', marginBottom: '35px', position: 'relative', paddingLeft: '24px', borderLeft: '4px solid var(--primary)' }}>
+                Our mission is to establish the benchmark for adventure travel in Rajasthan. We aim to bring travelers closer to the rich heritage and vibrant colors of Jaisalmer, ensuring safe, culturally respectful, and breathtaking excursions.
+              </p>
+              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '15px', padding: '15px 25px', background: 'linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01))', borderRadius: '16px', border: '1px solid rgba(255,255,255,0.08)', boxShadow: '0 10px 30px rgba(0,0,0,0.1)' }}>
+                <div style={{ width: '45px', height: '45px', borderRadius: '50%', background: 'linear-gradient(135deg, rgba(240, 123, 63, 0.2), transparent)', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid rgba(240, 123, 63, 0.3)' }}>
+                  <Shield size={22} color="var(--primary)" />
+                </div>
+                <span style={{ fontWeight: '700', color: 'var(--text-color)', fontSize: '1.1rem' }}>Safety & Heritage</span>
               </div>
             </div>
+
           </div>
         </div>
+        <style>{`
+          .orbit-ring { animation: spin 20s linear infinite; pointer-events: none; }
+          .orbit-ring-reverse { animation: spin 30s linear infinite reverse; pointer-events: none; }
+          @keyframes spin { 100% { transform: rotate(360deg); } }
+          .mission-visual:hover .mission-center-orb { transform: scale(1.1); box-shadow: 0 0 60px rgba(240, 123, 63, 0.4) !important; border-color: var(--primary) !important; }
+        `}</style>
+      </section>
+
+      {/* Core Values Section */}
+      <section className="section" style={{ background: 'linear-gradient(180deg, rgba(11, 15, 25, 0.2) 0%, rgba(11, 15, 25, 0.8) 100%)', position: 'relative', borderTop: '1px solid var(--glass-border)' }}>
+        <div style={{ position: 'absolute', bottom: '0', left: '0', width: '100%', height: '50%', background: 'radial-gradient(ellipse at bottom, rgba(255, 212, 96, 0.05) 0%, transparent 60%)', pointerEvents: 'none', zIndex: 0 }} />
+        
+        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
+          <div style={{ textAlign: 'center', marginBottom: '80px' }}>
+            <span style={{ color: 'var(--secondary)', fontWeight: '800', textTransform: 'uppercase', letterSpacing: '2px', fontSize: '0.9rem', display: 'inline-block', marginBottom: '10px' }}>What Drives Us</span>
+            <h2 className="section-title" style={{ marginTop: '0', marginBottom: '0' }}>Our Core Values</h2>
+          </div>
+
+          <div className="values-grid">
+            {[
+              { title: "Safety First", desc: "We utilize advanced backup services and trained drivers for every desert excursion.", icon: <Shield size={36} color="#fff" />, color: '#f07b3f' },
+              { title: "True Hospitality", desc: "Experience the authentic warmth and tradition of true Rajasthani hospitality.", icon: <CheckCircle size={36} color="#fff" />, color: '#ffd460' },
+              { title: "No Hidden Costs", desc: "Honest pricing with completely transparent inclusions. What you see is what you get.", icon: <Award size={36} color="#fff" />, color: '#2d4059' }
+            ].map((value, idx) => (
+              <div key={idx} className="value-card glass-panel" style={{ padding: '50px 30px', textAlign: 'center', position: 'relative', overflow: 'hidden', borderTop: `4px solid ${value.color}` }}>
+                {/* Background colored glow for card */}
+                <div style={{ position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)', width: '100px', height: '100px', background: value.color, filter: 'blur(60px)', opacity: 0.15, zIndex: 0, pointerEvents: 'none' }}></div>
+                
+                <div className="value-icon-box" style={{ width: '80px', height: '80px', borderRadius: '24px', background: `linear-gradient(135deg, ${value.color}, rgba(0,0,0,0.6))`, display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 30px auto', boxShadow: `0 15px 30px ${value.color}40`, transition: 'all 0.5s cubic-bezier(0.16, 1, 0.3, 1)', position: 'relative', zIndex: 1 }}>
+                  {value.icon}
+                </div>
+                <h3 style={{ fontSize: '1.5rem', marginBottom: '16px', position: 'relative', zIndex: 1 }}>{value.title}</h3>
+                <p style={{ color: 'var(--text-muted)', lineHeight: '1.8', fontSize: '1.05rem', position: 'relative', zIndex: 1 }}>{value.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <style>{`
+          .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+          }
+          .value-card {
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+          }
+          .value-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+            border-color: rgba(255,255,255,0.3) !important;
+            background: rgba(17, 24, 39, 0.8);
+          }
+          .value-card:hover .value-icon-box {
+            transform: scale(1.15) rotate(5deg) translateY(-5px);
+          }
+          @media(min-width: 992px) {
+            .values-grid > div:nth-child(1) { transform: translateY(0px); }
+            .values-grid > div:nth-child(2) { transform: translateY(40px); }
+            .values-grid > div:nth-child(3) { transform: translateY(0px); }
+            
+            .values-grid > div:nth-child(1):hover { transform: translateY(-15px); }
+            .values-grid > div:nth-child(2):hover { transform: translateY(25px); }
+            .values-grid > div:nth-child(3):hover { transform: translateY(-15px); }
+          }
+        `}</style>
       </section>
 
       {/* Why Choose Us */}
