@@ -140,9 +140,9 @@ const Home = () => {
         }}
       >
         <div className="container animate-fade-in" style={{ textAlign: 'center', zIndex: 1 }}>
-          <div className="glass-panel" style={{ padding: '60px 40px', maxWidth: '850px', margin: '0 auto', background: 'rgba(11, 15, 25, 0.55)', border: '1px solid rgba(255, 255, 255, 0.1)' }}>
+          <div className="glass-panel hero-box" style={{ maxWidth: '850px', margin: '0 auto', background: 'rgba(11, 15, 25, 0.55)', border: '1px solid rgba(255, 255, 255, 0.1)' }}>
             <span style={{ color: 'var(--primary)', fontWeight: '700', letterSpacing: '4px', fontSize: '0.9rem', textTransform: 'uppercase' }}>Unforgettable Adventures Await</span>
-            <h1 style={{ fontSize: '3.8rem', lineHeight: '1.2', margin: '20px 0', fontWeight: '800', color: '#ffffff' }}>
+            <h1 style={{ fontSize: 'var(--fs-h1)', lineHeight: '1.2', margin: '20px 0', fontWeight: '800', color: '#ffffff' }}>
               Discover the Magic of <span style={{ color: 'var(--primary)' }}>Jaisalmer</span> Desert
             </h1>
             <p style={{ fontSize: '1.2rem', color: '#e2e8f0', marginBottom: '40px', maxWidth: '600px', margin: '0 auto 40px auto' }}>
@@ -161,7 +161,7 @@ const Home = () => {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '50px', alignItems: 'center' }}>
           <div className="animate-fade-in">
             <span style={{ color: 'var(--primary)', fontWeight: '600', textTransform: 'uppercase', letterSpacing: '2px', fontSize: '0.9rem' }}>Who We Are</span>
-            <h2 style={{ fontSize: '2.5rem', marginTop: '10px', marginBottom: '20px', textAlign: 'left' }}>Shivhari Tours & Desert Safari</h2>
+            <h2 style={{ fontSize: 'var(--fs-h2)', marginTop: '10px', marginBottom: '20px', textAlign: 'left' }}>Shivhari Tours & Desert Safari</h2>
             <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem', marginBottom: '25px', lineHeight: '1.8' }}>
               Nestled in the Golden City, we are Jaisalmer's top-rated destination management agency. We craft authentic, safe, and exhilarating Rajasthani adventures, specializing in high-speed Jeep Safaris, beautiful desert camps, and customized tour taxis.
             </p>
@@ -256,7 +256,7 @@ const Home = () => {
           
           <div className="glass-panel" style={{ padding: '40px' }}>
             <Compass size={40} color="var(--primary)" style={{ marginBottom: '20px' }} />
-            <h3 style={{ fontSize: '1.8rem', marginBottom: '15px' }}>Mission & Vision</h3>
+            <h3 style={{ fontSize: 'var(--fs-h3)', marginBottom: '15px' }}>Mission & Vision</h3>
             <p style={{ color: 'var(--text-muted)', lineHeight: '1.8' }}>
               Our mission is to establish the benchmark for adventure travel in Rajasthan. We aim to bring travelers closer to the rich heritage and vibrant colors of Jaisalmer, ensuring safe, culturally respectful, and breathtaking excursions.
             </p>
@@ -264,7 +264,7 @@ const Home = () => {
 
           <div className="glass-panel" style={{ padding: '40px' }}>
             <Shield size={40} color="var(--secondary)" style={{ marginBottom: '20px' }} />
-            <h3 style={{ fontSize: '1.8rem', marginBottom: '15px' }}>Core Values</h3>
+            <h3 style={{ fontSize: 'var(--fs-h3)', marginBottom: '15px' }}>Core Values</h3>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '15px', color: 'var(--text-muted)' }}>
               <div style={{ display: 'flex', gap: '10px' }}>
                 <CheckCircle size={18} color="var(--primary)" style={{ flexShrink: 0, marginTop: '4px' }} />
@@ -317,7 +317,7 @@ const Home = () => {
         }}
       >
         <div className="container">
-          <h2 style={{ fontSize: '3rem', color: '#ffffff', marginBottom: '20px', fontWeight: '800' }}>Ready for a Sunset Desert Adventure?</h2>
+          <h2 style={{ fontSize: 'var(--fs-h2)', color: '#ffffff', marginBottom: '20px', fontWeight: '800' }}>Ready for a Sunset Desert Adventure?</h2>
           <p style={{ fontSize: '1.2rem', color: '#e2e8f0', marginBottom: '40px', maxWidth: '600px', margin: '0 auto 40px auto' }}>
             Book now and witness Jaisalmer's breathtaking golden sunset with customized safari rides.
           </p>
