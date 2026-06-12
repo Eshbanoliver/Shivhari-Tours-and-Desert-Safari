@@ -1,6 +1,7 @@
 import { Link, NavLink } from 'react-router-dom';
 import { Menu, X, Phone, Sun, Moon } from 'lucide-react';
 import { useState, useEffect } from 'react';
+import logoImg from '../assets/logo.png';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -35,28 +36,12 @@ const Header = () => {
   ];
 
   return (
-    <header 
-      className="glass-panel" 
-      style={{
-        position: 'fixed',
-        top: scrolled ? '15px' : '25px',
-        left: '5%',
-        right: '5%',
-        zIndex: 1000,
-        padding: scrolled ? '12px 30px' : '20px 40px',
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        background: scrolled ? 'var(--header-bg-scrolled)' : 'var(--header-bg-top)',
-        borderColor: scrolled ? 'rgba(240, 123, 63, 0.25)' : 'var(--glass-border)',
-        transition: 'var(--transition-smooth)',
-        borderRadius: '50px',
-      }}
-    >
+    <header className={`glass-panel header-container ${scrolled ? 'scrolled' : ''}`}>
       <div className="logo" style={{ display: 'flex', alignItems: 'center' }}>
         <Link to="/" style={{ fontSize: '1.5rem', fontWeight: '800', display: 'flex', gap: '8px', alignItems: 'center' }}>
+          <img src={logoImg} alt="Shivhari Logo" style={{ height: '32px', width: 'auto', borderRadius: '4px', objectFit: 'contain' }} />
           <span style={{ color: 'var(--primary)' }}>Shivhari</span>
-          <span style={{ color: 'var(--text-color)', fontWeight: '300', fontSize: '1.1rem', letterSpacing: '2px', borderLeft: '1px solid var(--glass-border)', paddingLeft: '8px' }}>TOURS</span>
+          <span className="logo-text-full" style={{ color: 'var(--text-color)', fontWeight: '300', fontSize: '1.1rem', letterSpacing: '2px', borderLeft: '1px solid var(--glass-border)', paddingLeft: '8px' }}>TOURS</span>
         </Link>
       </div>
 
@@ -124,9 +109,45 @@ const Header = () => {
       </div>
 
       <style>{`
+        .header-container {
+          position: fixed;
+          top: 25px;
+          left: 0;
+          right: 0;
+          margin: 0 auto;
+          width: 90%;
+          max-width: 1400px;
+          z-index: 1000;
+          padding: 20px 40px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          background: var(--header-bg-top);
+          border-color: var(--glass-border);
+          transition: var(--transition-smooth);
+          border-radius: 50px;
+        }
+        .header-container.scrolled {
+          top: 15px;
+          padding: 12px 30px;
+          background: var(--header-bg-scrolled);
+          border-color: rgba(240, 123, 63, 0.25);
+        }
         @media (max-width: 992px) {
           .desktop-nav { display: none !important; }
           .mobile-actions { display: flex !important; }
+        }
+        @media (max-width: 768px) {
+          .header-container {
+            width: 94%;
+            padding: 15px 20px;
+            top: 15px;
+          }
+          .header-container.scrolled {
+            top: 10px;
+            padding: 12px 20px;
+          }
+          .logo-text-full { display: none; }
         }
       `}</style>
 

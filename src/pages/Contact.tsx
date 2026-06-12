@@ -108,7 +108,7 @@ const Contact = () => {
                   <div>
                     <h4 style={{ color: 'var(--text-color)', fontSize: '1.1rem', marginBottom: '5px' }}>Email Us</h4>
                     <p style={{ color: 'var(--text-muted)', lineHeight: '1.6' }}>
-                      <a href="mailto:booking@shivharitours.com" className="contact-link">booking@shivharitours.com</a>
+                      <a href="mailto:yashvyas7773@gmail.com" className="contact-link">yashvyas7773@gmail.com</a>
                     </p>
                   </div>
                 </div>

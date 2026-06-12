@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
-import { MapPin, Phone } from 'lucide-react';
+import { MapPin, Phone, Mail } from 'lucide-react';
+import logoImg from '../assets/logo.png';
 
 const Footer = () => {
   return (
@@ -23,8 +24,9 @@ const Footer = () => {
         }}>
           {/* Col 1: About */}
           <div>
-            <h3 style={{ fontSize: '1.5rem', fontWeight: '800', marginBottom: '20px' }}>
-              <span style={{ color: 'var(--primary)' }}>Shivhari</span> Tours
+            <h3 style={{ fontSize: '1.5rem', fontWeight: '800', marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '10px' }}>
+              <img src={logoImg} alt="Shivhari Logo" style={{ height: '36px', width: 'auto', borderRadius: '4px', objectFit: 'contain' }} />
+              <div><span style={{ color: 'var(--primary)' }}>Shivhari</span> Tours</div>
             </h3>
             <p style={{ fontSize: '0.95rem', color: '#cbd5e1', lineHeight: '1.7' }}>
               Your ultimate gateway to Jaisalmer's Thar Desert. Enjoy thrilling dune bashing, luxurious desert stays, and sightseeing tours with local guides.
@@ -69,6 +71,12 @@ const Footer = () => {
                   <a href="tel:+919166306846" className="footer-link">+91 9166306846</a>
                 </span>
               </div>
+              <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
+                <Mail size={18} color="var(--primary)" style={{ flexShrink: 0 }} />
+                <span style={{ color: '#cbd5e1' }}>
+                  <a href="mailto:yashvyas7773@gmail.com" className="footer-link">yashvyas7773@gmail.com</a>
+                </span>
+              </div>
             </div>
           </div>
         </div>
@@ -78,7 +86,7 @@ const Footer = () => {
 
         {/* Bottom copyright */}
         <p style={{ margin: 0, fontSize: '0.95rem', lineHeight: '1.6', color: '#e2e8f0', textAlign: 'center' }}>
-          ©️ Copyright 2026 | Shivhari Tours and Desert Safari | All Rights Reserved | Powered by <a href="https://www.futurexdigitalmarketing.com/" target="_blank" rel="noopener noreferrer" style={{ color: '#28a745', fontWeight: 'bold' }}>Future X Digital Marketing</a>
+          ©️ Copyright 2026 | <Link to="/" className="footer-link" style={{ color: '#e2e8f0', textDecoration: 'none', fontWeight: '600' }}>Shivhari Tours and Desert Safari</Link> | All Rights Reserved | Powered by <a href="https://www.futurexdigitalmarketing.com/" target="_blank" rel="noopener noreferrer" style={{ color: '#28a745', fontWeight: 'bold' }}>Future X Digital Marketing</a>
         </p>
       </div>
 

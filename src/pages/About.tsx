@@ -46,7 +46,7 @@ const About = () => {
           <div className="about-grid">
             
             {/* Left: Interactive Image Collage */}
-            <div className="about-images" style={{ position: 'relative', height: '500px' }}>
+            <div className="about-images" style={{ position: 'relative', height: '500px', width: '100%' }}>
               <div className="glass-panel main-img" style={{ position: 'absolute', top: 0, left: 0, width: '80%', height: '80%', padding: '10px', zIndex: 2, transform: 'rotate(-3deg)', transition: 'transform 0.5s ease', background: 'var(--card-bg)' }}>
                 <img src={campImg} alt="Jaisalmer Sam Sand Dunes" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '10px' }} />
               </div>
@@ -178,7 +178,7 @@ const About = () => {
         
         @media(max-width: 992px) {
           .about-grid { grid-template-columns: 1fr; gap: 40px; }
-          .about-images { height: 400px; max-width: 500px; margin: 0 auto; }
+          .about-images { height: 400px; max-width: 500px; width: 100%; margin: 0 auto; }
           .floating-badge { right: 5%; }
           .about-text .section-title { text-align: center !important; }
         }

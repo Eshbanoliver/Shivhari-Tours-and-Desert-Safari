@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://shivharitoursanddesertsafari.com/sitemap.xml
