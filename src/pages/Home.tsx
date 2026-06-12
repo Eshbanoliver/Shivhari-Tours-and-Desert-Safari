@@ -527,7 +527,7 @@ const Home = () => {
                   <p style={{ color: 'var(--text-muted)', marginBottom: '24px', fontSize: '0.98rem' }}>{service.desc}</p>
                 </div>
                 <div style={{ display: 'flex', gap: '10px' }}>
-                  <Link to={service.link} className="btn btn-glass" style={{ flex: 1, justifyContent: 'center', padding: '12px 10px', fontSize: '0.9rem' }}>
+                  <Link to={service.link} className="btn" style={{ flex: 1, justifyContent: 'center', padding: '12px 10px', fontSize: '0.9rem', color: 'var(--text-color)', border: '1px solid var(--glass-border)', background: 'var(--card-bg)' }}>
                     Explore Details
                   </Link>
                   <Link to="/contact" className="btn btn-primary" style={{ flex: 1, justifyContent: 'center', padding: '12px 10px', fontSize: '0.9rem' }}>
@@ -648,23 +648,95 @@ const Home = () => {
       </section>
 
       {/* Why Choose Us */}
-      <section className="section container">
-        <h2 className="section-title">Why Choose Shivhari Tours</h2>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '30px' }}>
-          {[
-            { title: "Central Location", desc: "Located on Airforce Road, makes it super easy to drop in and plan your sunset safari." },
-            { title: "Expert Local Team", desc: "Our staff consists of local villagers who know the dunes like the back of their hand." },
-            { title: "Luxury & Comfort", desc: "Well-sanitized vehicles, high-speed 4x4s, and cozy bedding in all tents." }
-          ].map((item, i) => (
-            <div key={i} className="glass-panel" style={{ padding: '35px', textAlign: 'center' }}>
-              <div style={{ width: '60px', height: '60px', borderRadius: '50%', background: 'rgba(240, 123, 63, 0.1)', display: 'flex', alignItems: 'center', justifySelf: 'center', justifyContent: 'center', marginBottom: '20px' }}>
-                <MapPin size={24} color="var(--primary)" />
+      <section className="section" style={{ position: 'relative', overflow: 'hidden', padding: '120px 5%', background: 'linear-gradient(135deg, var(--bg-color) 0%, rgba(240, 123, 63, 0.05) 100%)', borderTop: '1px solid var(--glass-border)' }}>
+        {/* Creative Abstract Background Elements */}
+        <div style={{ position: 'absolute', top: '-10%', left: '-5%', width: '40vw', height: '40vw', background: 'radial-gradient(circle, rgba(240, 123, 63, 0.08) 0%, transparent 60%)', filter: 'blur(80px)', pointerEvents: 'none' }}></div>
+        <div style={{ position: 'absolute', bottom: '-10%', right: '-5%', width: '35vw', height: '35vw', background: 'radial-gradient(circle, rgba(255, 212, 96, 0.05) 0%, transparent 60%)', filter: 'blur(80px)', pointerEvents: 'none' }}></div>
+        
+        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
+          <div style={{ textAlign: 'center', marginBottom: '80px' }}>
+            <span style={{ display: 'inline-block', padding: '8px 24px', borderRadius: '30px', background: 'linear-gradient(135deg, rgba(240, 123, 63, 0.15), rgba(255, 212, 96, 0.1))', border: '1px solid rgba(240, 123, 63, 0.3)', color: 'var(--primary)', fontWeight: '800', textTransform: 'uppercase', letterSpacing: '3px', fontSize: '0.9rem', marginBottom: '20px', boxShadow: '0 10px 20px rgba(0,0,0,0.1)' }}>
+              The Shivhari Difference
+            </span>
+            <h2 className="section-title" style={{ fontSize: '3.5rem', marginBottom: '0', background: 'var(--title-gradient)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', textShadow: '0 10px 30px rgba(240, 123, 63, 0.15)' }}>
+              Why Choose Us
+            </h2>
+          </div>
+
+          <div className="why-choose-grid">
+            {[
+              { id: "01", title: "Central Location", desc: "Located directly on Airforce Road, making it incredibly easy to drop in, consult our team, and plan your sunset safari.", icon: <MapPin size={28} color="var(--primary)" /> },
+              { id: "02", title: "Expert Local Team", desc: "Our entire staff consists of local villagers and native guides who know the dunes like the back of their hand.", icon: <Users size={28} color="var(--secondary)" /> },
+              { id: "03", title: "Luxury & Comfort", desc: "Well-sanitized vehicles, high-speed 4x4s, and deeply cozy bedding in all of our Swiss luxury tents.", icon: <Tent size={28} color="var(--primary)" /> }
+            ].map((item, i) => (
+              <div key={i} className="why-card glass-panel" style={{ padding: '50px 40px', position: 'relative', overflow: 'hidden', borderRadius: '30px', display: 'flex', flexDirection: 'column', gap: '20px', zIndex: 1 }}>
+                
+                {/* Giant background number watermark */}
+                <div style={{ position: 'absolute', right: '-10px', top: '-20px', fontSize: '10rem', fontWeight: '900', color: 'rgba(240, 123, 63, 0.05)', lineHeight: 1, zIndex: 0, transition: 'all 0.5s ease', fontFamily: 'monospace' }} className="watermark-number">
+                  {item.id}
+                </div>
+
+                <div className="why-icon-box" style={{ width: '70px', height: '70px', borderRadius: '20px', background: 'var(--card-bg)', border: '1px solid var(--glass-border)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 1, transition: 'all 0.4s ease', backdropFilter: 'blur(10px)' }}>
+                  {item.icon}
+                </div>
+                
+                <div style={{ zIndex: 1 }}>
+                  <h4 style={{ fontSize: '1.6rem', marginBottom: '15px', color: 'var(--text-color)', fontWeight: '700' }}>{item.title}</h4>
+                  <p style={{ color: 'var(--text-muted)', lineHeight: '1.8', fontSize: '1.05rem', margin: 0 }}>{item.desc}</p>
+                </div>
+
+                {/* Animated bottom border glow */}
+                <div className="card-bottom-glow" style={{ position: 'absolute', bottom: 0, left: 0, width: '100%', height: '4px', background: 'linear-gradient(90deg, var(--primary), var(--secondary))', transform: 'scaleX(0)', transformOrigin: 'left', transition: 'transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)' }}></div>
               </div>
-              <h4 style={{ fontSize: '1.3rem', marginBottom: '12px' }}>{item.title}</h4>
-              <p style={{ color: 'var(--text-muted)' }}>{item.desc}</p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
+
+        <style>{`
+          .why-choose-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            position: relative;
+          }
+          .why-card {
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            border: 1px solid var(--glass-border);
+            background: var(--card-bg);
+          }
+          .why-card:hover {
+            transform: translateY(-20px);
+            border-color: rgba(240, 123, 63, 0.3);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1), 0 0 30px rgba(240, 123, 63, 0.1);
+          }
+          .why-card:hover .why-icon-box {
+            background: linear-gradient(135deg, rgba(240, 123, 63, 0.2), transparent);
+            border-color: rgba(240, 123, 63, 0.5);
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 15px 30px rgba(240, 123, 63, 0.2);
+          }
+          .why-card:hover .watermark-number {
+            color: rgba(240, 123, 63, 0.15);
+            transform: scale(1.1) translate(-10px, 10px);
+          }
+          .why-card:hover .card-bottom-glow {
+            transform: scaleX(1);
+          }
+          
+          /* Connecting dashed line for desktop */
+          @media(min-width: 1024px) {
+            .why-choose-grid::before {
+              content: '';
+              position: absolute;
+              top: 85px;
+              left: 5%;
+              width: 90%;
+              height: 2px;
+              background: repeating-linear-gradient(90deg, rgba(240,123,63,0.2) 0, rgba(240,123,63,0.2) 10px, transparent 10px, transparent 20px);
+              z-index: 0;
+            }
+          }
+        `}</style>
       </section>
 
       {/* CTA Section */}
@@ -693,62 +765,209 @@ const Home = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section className="section container">
-        <h2 className="section-title">What Our Guests Say</h2>
+      <section className="section" style={{ position: 'relative', overflow: 'hidden', padding: '120px 5%', background: 'linear-gradient(180deg, var(--bg-color) 0%, rgba(240, 123, 63, 0.03) 100%)' }}>
         
-        <div style={{ maxWidth: '800px', margin: '0 auto', position: 'relative' }}>
-          <div className="glass-panel testimonial-card animate-fade-in" key={activeTestimonial} style={{ padding: '50px 40px 40px 40px' }}>
-            <FaQuoteLeft size={32} color="var(--primary)" style={{ opacity: 0.2, marginBottom: '20px', display: 'block', margin: '0 auto 20px auto' }} />
-            <p className="testimonial-quote">"{testimonials[activeTestimonial].quote}"</p>
-            <h4 className="testimonial-author">{testimonials[activeTestimonial].author}</h4>
-            <span style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>{testimonials[activeTestimonial].role}</span>
-          </div>
-
-          {/* Slider controls */}
-          <div style={{ display: 'flex', gap: '20px', justifyContent: 'center', marginTop: '30px' }}>
-            <button onClick={prevTestimonial} className="glass-panel" style={{ width: '45px', height: '45px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid rgba(255,255,255,0.1)', cursor: 'pointer' }}>
-              <ChevronLeft size={20} color="#fff" />
-            </button>
-            <button onClick={nextTestimonial} className="glass-panel" style={{ width: '45px', height: '45px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid rgba(255,255,255,0.1)', cursor: 'pointer' }}>
-              <ChevronRight size={20} color="#fff" />
-            </button>
-          </div>
-        </div>
-
-        <div style={{ textAlign: 'center', marginTop: '40px' }}>
-          <Link to="/testimonials" className="btn btn-glass">View All Testimonials</Link>
-        </div>
-      </section>
-
-      {/* FAQ Accordion Section */}
-      <section className="section container" style={{ paddingBottom: '120px' }}>
-        <h2 className="section-title">Frequently Asked Questions</h2>
+        {/* Decorative Background Quote */}
+        <div style={{ position: 'absolute', top: '5%', left: '5%', fontSize: '35rem', color: 'rgba(240, 123, 63, 0.04)', fontFamily: 'serif', lineHeight: 1, pointerEvents: 'none', zIndex: 0, userSelect: 'none' }}>"</div>
         
-        <div className="glass-panel" style={{ maxWidth: '850px', margin: '0 auto', padding: '10px 0' }}>
-          {faqData.map((faq, idx) => (
-            <div key={idx} className="faq-item">
-              <button className="faq-question" onClick={() => toggleFaq(idx)}>
-                <span style={{ fontWeight: '600', fontSize: '1.1rem', color: '#f1f5f9' }}>{faq.q}</span>
-                <ChevronDown 
-                  size={20} 
-                  color="var(--primary)" 
-                  style={{ 
-                    transform: openFaq === idx ? 'rotate(180deg)' : 'rotate(0deg)', 
-                    transition: 'var(--transition-smooth)' 
-                  }} 
-                />
-              </button>
-              <div 
-                className="faq-answer-container" 
-                style={{ maxHeight: openFaq === idx ? '200px' : '0' }}
-              >
-                <div className="faq-answer">
-                  {faq.a}
+        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
+          <div style={{ textAlign: 'center', marginBottom: '60px' }}>
+            <span style={{ color: 'var(--primary)', fontWeight: '800', textTransform: 'uppercase', letterSpacing: '2px', fontSize: '0.9rem', display: 'inline-block', marginBottom: '10px' }}>Guest Experiences</span>
+            <h2 className="section-title" style={{ marginTop: '0' }}>What Our Guests Say</h2>
+          </div>
+          
+          <div style={{ maxWidth: '900px', margin: '0 auto', position: 'relative' }} className="testimonial-wrapper">
+            
+            {/* The Active Card */}
+            <div className="glass-panel testimonial-card animate-fade-in" key={activeTestimonial} style={{ padding: '60px', position: 'relative', overflow: 'hidden', borderRadius: '30px', border: '1px solid var(--glass-border)', background: 'var(--card-bg)', boxShadow: '0 25px 50px rgba(0,0,0,0.1)' }}>
+              
+              {/* Top Accent Line */}
+              <div style={{ position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)', width: '200px', height: '4px', background: 'linear-gradient(90deg, transparent, var(--primary), var(--secondary), transparent)' }}></div>
+
+              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
+                <div style={{ width: '80px', height: '80px', borderRadius: '50%', background: 'linear-gradient(135deg, rgba(240, 123, 63, 0.1), rgba(255, 212, 96, 0.05))', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '30px', boxShadow: '0 10px 20px rgba(0,0,0,0.05)', border: '1px solid rgba(240, 123, 63, 0.2)' }}>
+                  <FaQuoteLeft size={36} color="var(--primary)" />
+                </div>
+                
+                <p className="testimonial-quote" style={{ fontSize: '1.45rem', lineHeight: '1.8', color: 'var(--text-color)', marginBottom: '40px', fontStyle: 'italic', fontWeight: '300' }}>
+                  "{testimonials[activeTestimonial].quote}"
+                </p>
+                
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                  <h4 className="testimonial-author" style={{ fontSize: '1.3rem', fontWeight: '800', color: 'var(--primary)', marginBottom: '5px' }}>{testimonials[activeTestimonial].author}</h4>
+                  <span style={{ color: 'var(--text-muted)', fontSize: '0.95rem', textTransform: 'uppercase', letterSpacing: '1px', fontWeight: '600' }}>{testimonials[activeTestimonial].role}</span>
                 </div>
               </div>
             </div>
-          ))}
+
+            {/* Slider controls - Floating on sides */}
+            <div className="slider-controls">
+              <button onClick={prevTestimonial} className="slider-btn glass-panel left-btn">
+                <ChevronLeft size={24} />
+              </button>
+              <button onClick={nextTestimonial} className="slider-btn glass-panel right-btn">
+                <ChevronRight size={24} />
+              </button>
+            </div>
+
+            {/* Progress Dots */}
+            <div style={{ display: 'flex', justifyContent: 'center', gap: '10px', marginTop: '40px' }}>
+              {testimonials.map((_, idx) => (
+                <button 
+                  key={idx} 
+                  onClick={() => setActiveTestimonial(idx)}
+                  style={{ 
+                    width: activeTestimonial === idx ? '30px' : '10px', 
+                    height: '10px', 
+                    borderRadius: '5px', 
+                    background: activeTestimonial === idx ? 'var(--primary)' : 'rgba(240, 123, 63, 0.2)', 
+                    border: 'none', 
+                    cursor: 'pointer',
+                    transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)'
+                  }} 
+                  aria-label={`Go to testimonial ${idx + 1}`}
+                />
+              ))}
+            </div>
+
+          </div>
+
+          <div style={{ textAlign: 'center', marginTop: '50px' }}>
+            <Link to="/testimonials" className="btn btn-secondary" style={{ padding: '14px 32px', borderRadius: '30px', boxShadow: '0 10px 20px rgba(0,0,0,0.05)' }}>View All Experiences</Link>
+          </div>
         </div>
+
+        <style>{`
+          .slider-controls {
+            position: absolute;
+            top: 50%;
+            left: -30px;
+            right: -30px;
+            transform: translateY(-50%);
+            display: flex;
+            justify-content: space-between;
+            pointer-events: none;
+            z-index: 2;
+          }
+          .slider-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border: 1px solid var(--glass-border);
+            color: var(--text-color);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            background: var(--card-bg);
+            pointer-events: auto;
+          }
+          .slider-btn:hover {
+            transform: scale(1.1);
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            box-shadow: 0 10px 25px rgba(240, 123, 63, 0.4);
+          }
+          .left-btn:hover { transform: scale(1.1) translateX(-5px); }
+          .right-btn:hover { transform: scale(1.1) translateX(5px); }
+          
+          @media(max-width: 992px) {
+            .slider-controls {
+              position: static;
+              transform: none;
+              justify-content: center;
+              gap: 20px;
+              margin-top: 30px;
+            }
+          }
+          @media(max-width: 768px) {
+            .slider-btn {
+              width: 50px; height: 50px;
+            }
+            .testimonial-card { padding: 40px 20px !important; }
+            .testimonial-quote { font-size: 1.15rem !important; }
+          }
+        `}</style>
+      </section>
+
+      {/* FAQ Accordion Section */}
+      <section className="section" style={{ padding: '120px 5%', position: 'relative' }}>
+        {/* Background Blob */}
+        <div style={{ position: 'absolute', top: '20%', right: '10%', width: '300px', height: '300px', background: 'radial-gradient(circle, rgba(240, 123, 63, 0.05) 0%, transparent 70%)', filter: 'blur(50px)', pointerEvents: 'none', zIndex: 0 }}></div>
+        
+        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
+          <div className="faq-grid">
+            
+            {/* Left Side: Sticky Title & Visual */}
+            <div className="faq-header" style={{ position: 'sticky', top: '120px', height: 'fit-content' }}>
+              <span style={{ display: 'inline-block', padding: '6px 16px', borderRadius: '30px', background: 'rgba(240, 123, 63, 0.1)', border: '1px solid rgba(240, 123, 63, 0.2)', color: 'var(--primary)', fontWeight: '800', textTransform: 'uppercase', letterSpacing: '2px', fontSize: '0.85rem', marginBottom: '20px' }}>Support & Info</span>
+              <h2 className="section-title" style={{ textAlign: 'left', marginBottom: '30px', fontSize: '3.2rem', lineHeight: '1.2' }}>
+                Frequently Asked <br/><span style={{ background: 'linear-gradient(135deg, var(--primary), var(--secondary))', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Questions</span>
+              </h2>
+              <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem', lineHeight: '1.8', marginBottom: '40px', maxWidth: '400px' }}>
+                Everything you need to know about our desert safaris, accommodations, and booking process. Can't find the answer you're looking for? 
+              </p>
+              <Link to="/contact" className="btn btn-primary" style={{ padding: '15px 35px', borderRadius: '30px', display: 'inline-flex', alignItems: 'center', gap: '10px' }}>
+                Contact Support <ArrowRight size={18} />
+              </Link>
+            </div>
+
+            {/* Right Side: Accordion Cards */}
+            <div className="faq-list" style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+              {faqData.map((faq, idx) => (
+                <div key={idx} className="glass-panel faq-card" style={{ padding: '0', overflow: 'hidden', border: openFaq === idx ? '1px solid var(--primary)' : '1px solid var(--glass-border)', transition: 'all 0.3s ease', borderRadius: '20px', background: openFaq === idx ? 'rgba(240, 123, 63, 0.02)' : 'var(--card-bg)' }}>
+                  <button className="faq-question-btn" onClick={() => toggleFaq(idx)} style={{ width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '25px 30px', background: 'transparent', border: 'none', cursor: 'pointer', textAlign: 'left' }}>
+                    <span style={{ fontWeight: '700', fontSize: '1.15rem', color: openFaq === idx ? 'var(--primary)' : 'var(--text-color)', transition: 'color 0.3s ease', paddingRight: '20px' }}>{faq.q}</span>
+                    <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: openFaq === idx ? 'var(--primary)' : 'var(--glass-border)', display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'all 0.3s ease', flexShrink: 0 }}>
+                      <ChevronDown size={20} color={openFaq === idx ? '#fff' : 'var(--text-color)'} style={{ transform: openFaq === idx ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)' }} />
+                    </div>
+                  </button>
+                  <div className="faq-answer-wrapper" style={{ maxHeight: openFaq === idx ? '300px' : '0', overflow: 'hidden', transition: 'max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1)' }}>
+                    <div style={{ padding: '0 30px 30px 30px', color: 'var(--text-muted)', fontSize: '1.05rem', lineHeight: '1.7', borderTop: openFaq === idx ? '1px dashed rgba(240, 123, 63, 0.2)' : 'none', marginTop: openFaq === idx ? '10px' : '0', paddingTop: openFaq === idx ? '20px' : '0', transition: 'all 0.3s ease' }}>
+                      {faq.a}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+          </div>
+        </div>
+
+        <style>{`
+          .faq-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 60px;
+            align-items: start;
+          }
+          .faq-card:hover {
+            border-color: rgba(240, 123, 63, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+          }
+          .faq-header .section-title::after {
+            display: none;
+          }
+          @media(max-width: 992px) {
+            .faq-grid {
+              grid-template-columns: 1fr;
+              gap: 40px;
+            }
+            .faq-header {
+              position: static !important;
+              text-align: center;
+            }
+            .faq-header .section-title {
+              text-align: center !important;
+            }
+            .faq-header p {
+              margin: 0 auto 30px auto;
+            }
+          }
+        `}</style>
       </section>
 
       <style>{`
