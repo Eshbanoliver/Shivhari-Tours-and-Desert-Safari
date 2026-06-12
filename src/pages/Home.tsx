@@ -142,10 +142,10 @@ const Home = () => {
         <div className="container animate-fade-in" style={{ textAlign: 'center', zIndex: 1 }}>
           <div className="glass-panel" style={{ padding: '60px 40px', maxWidth: '850px', margin: '0 auto', background: 'rgba(11, 15, 25, 0.55)', border: '1px solid rgba(255, 255, 255, 0.1)' }}>
             <span style={{ color: 'var(--primary)', fontWeight: '700', letterSpacing: '4px', fontSize: '0.9rem', textTransform: 'uppercase' }}>Unforgettable Adventures Await</span>
-            <h1 style={{ fontSize: '3.8rem', lineHeight: '1.2', margin: '20px 0', fontWeight: '800' }}>
+            <h1 style={{ fontSize: '3.8rem', lineHeight: '1.2', margin: '20px 0', fontWeight: '800', color: '#ffffff' }}>
               Discover the Magic of <span style={{ color: 'var(--primary)' }}>Jaisalmer</span> Desert
             </h1>
-            <p style={{ fontSize: '1.2rem', color: 'var(--text-muted)', marginBottom: '40px', maxWidth: '600px', margin: '0 auto 40px auto' }}>
+            <p style={{ fontSize: '1.2rem', color: '#e2e8f0', marginBottom: '40px', maxWidth: '600px', margin: '0 auto 40px auto' }}>
               Experience thrilling dune bashing, luxurious desert camp stays, traditional Rajasthani culture, and custom taxi tours with the desert experts.
             </p>
             <div style={{ display: 'flex', gap: '20px', justifyContent: 'center', flexWrap: 'wrap' }}>
@@ -317,8 +317,8 @@ const Home = () => {
         }}
       >
         <div className="container">
-          <h2 style={{ fontSize: '3rem', color: '#fff', marginBottom: '20px', fontWeight: '800' }}>Ready for a Sunset Desert Adventure?</h2>
-          <p style={{ fontSize: '1.2rem', color: '#f1f5f9', marginBottom: '40px', maxWidth: '600px', margin: '0 auto 40px auto' }}>
+          <h2 style={{ fontSize: '3rem', color: '#ffffff', marginBottom: '20px', fontWeight: '800' }}>Ready for a Sunset Desert Adventure?</h2>
+          <p style={{ fontSize: '1.2rem', color: '#e2e8f0', marginBottom: '40px', maxWidth: '600px', margin: '0 auto 40px auto' }}>
             Book now and witness Jaisalmer's breathtaking golden sunset with customized safari rides.
           </p>
           <div style={{ display: 'flex', gap: '20px', justifyContent: 'center', flexWrap: 'wrap' }}>
